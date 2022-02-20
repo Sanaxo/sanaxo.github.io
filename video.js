@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const videoSource = videoWrapper.getAttribute('data-video');
 	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
 	const playbackIcons = videoWrapper.querySelectorAll('.playback-icon');
-	const playButton = videoWrapper.querySelector('.Playbutton');
+	const playButton = videoWrapper.querySelector('.PlayButton');
 
 	const videoElement = document.createElement('video');
 
