@@ -1,8 +1,15 @@
 /** @format */
 
 .Video {
+	position: absolute;
+	z-index: -1;
 	max-width: 80%;
 	max-height: 80%;
+}
+
+.PlayButton {
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .hidden {
