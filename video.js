@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	console.log('Droggelbecher videoElement: ', videoWrapper);
 
 	console.log('Droggelbecher videoSource: ', videoSource);
-	const videoElement = videoWrapper.createElement('video');
+	const videoElement = document.createElement('video');
 	console.log('Droggelbecher video: ', videoElement);
 
 	videoElement.src = videoSource;
 	videoElement.poster = thumbnail;
+	videoWrapper.appendChild(videoElement);
 });
