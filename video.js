@@ -4,29 +4,30 @@ document.addEventListener('DOMContentLoaded', () => {
 	const videoWrapper = document.querySelector('.VideoWrapper');
 	const videoSource = videoWrapper.getAttribute('data-video');
 	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
-	const playButton = videoWrapper.getAttribute('data-playbutton');
+	const playbackIcons = videoWrapper.querySelectorAll('.playback-icon');
 
-	console.log('Droggelbecher videoElement: ', videoWrapper);
-
-	console.log('Droggelbecher videoSource: ', videoSource);
 	const videoElement = document.createElement('video');
-	console.log('Droggelbecher video: ', videoElement);
 
 	videoElement.src = videoSource;
 	videoElement.poster = thumbnail;
 	videoElement.classList.add('Video');
-
-	const playButtonElement = document.createElement('img');
-	playButton.classList.add('PlayButton');
-
-	videoWrapper.appendChild(playButtonElement);
 	videoWrapper.appendChild(videoElement);
 });
 
 function togglePlay() {
-	if (video.paused || video.ended) {
-		video.play();
+	if (videoElement.paused || videoElement.ended) {
+		videoElement.play();
 	} else {
-		video.pause();
+		videoElement.pause();
+	}
+}
+
+function updatePlayButton() {
+	playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
+
+	if (video.paused) {
+		playButton.setAttribute('data-title', 'Play (k)');
+	} else {
+		playButton.setAttribute('data-title', 'Pause (k)');
 	}
 }
