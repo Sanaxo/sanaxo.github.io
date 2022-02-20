@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const videoSource = videoWrapper.getAttribute('data-video');
 	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
 	const playbackIcons = videoWrapper.querySelectorAll('.playback-icon');
+	const playButton = videoWrapper.querySelector('.Playbutton');
 
 	const videoElement = document.createElement('video');
 
@@ -24,10 +25,8 @@ function togglePlay() {
 
 function updatePlayButton() {
 	playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
-
-	if (video.paused) {
-		playButton.setAttribute('data-title', 'Play (k)');
-	} else {
-		playButton.setAttribute('data-title', 'Pause (k)');
-	}
 }
+
+playButton.addEventListener('click', togglePlay);
+videoElement.addEventListener('play', updatePlayButton);
+videoElement.addEventListener('pause', updatePlayButton);
