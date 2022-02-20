@@ -16,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function togglePlay() {
 		if (videoElement.paused || videoElement.ended) {
-			videoElement.play();
+			setTimeout(() => {
+				videoElement.play();
+			}, 20);
 		} else {
-			videoElement.pause();
+			setTimeout(() => {
+				videoElement.pause();
+			}, 20);
 		}
 	}
 
