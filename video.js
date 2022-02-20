@@ -26,7 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
 		playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
 	}
 
+	function animatePlayback() {
+		playButton.animate(
+			[
+				{
+					opacity: 1,
+					transform: 'scale(1)',
+				},
+				{
+					opacity: 0,
+					transform: 'scale(1.3)',
+				},
+			],
+			{
+				duration: 500,
+			}
+		);
+	}
+
 	playButton.addEventListener('click', togglePlay);
 	videoElement.addEventListener('play', updatePlayButton);
 	videoElement.addEventListener('pause', updatePlayButton);
+	videoElement.addEventListener('click', togglePlay);
+	videoElement.addEventListener('click', animatePlayback);
 });
