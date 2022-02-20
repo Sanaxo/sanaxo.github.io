@@ -13,5 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	videoElement.src = videoSource;
 	videoElement.poster = thumbnail;
+
+	videoWrapper.classList.add('Video');
 	videoWrapper.appendChild(videoElement);
 });
