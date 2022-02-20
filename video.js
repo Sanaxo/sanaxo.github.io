@@ -5,7 +5,7 @@ document.addEventListener('load', () => {
 	const videoSource = videoWrapper.getAttribute('data-video');
 	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
 
-	console.log('Droggelbecher videoElement: ', videoElement);
+	console.log('Droggelbecher videoElement: ', videoWrapper);
 
 	console.log('Droggelbecher videoSource: ', videoSource);
 	const videoElement = document.createElement('video');
