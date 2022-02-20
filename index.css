@@ -1,0 +1,45 @@
+
+@font-face {
+    font-family: 'AERIAL'; /*a name to be used later*/
+    src: url('AERIAL\(BLACK\ ROCK\ SHOOTER\ FONT\).TTF'); /*URL to font*/
+}
+
+
+#main{
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(221, 221, 221);
+}
+
+#item1{
+
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 5px solid black;
+    text-align: center;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(119, 132, 190);
+    font-family: AERIAL;
+    font-size: 5vW;
+}
+
+
+#item2{
+
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 5px solid black;
+    text-align: center;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(119, 132, 190);
+    font-family: AERIAL;
+    font-size: 5vW;
+
+}
