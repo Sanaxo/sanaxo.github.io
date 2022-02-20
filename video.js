@@ -1,6 +1,6 @@
 /** @format */
 
-document.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
 	const videoWrapper = document.querySelector('.VideoWrapper');
 	const videoSource = videoWrapper.getAttribute('data-video');
 	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
