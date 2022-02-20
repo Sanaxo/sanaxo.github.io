@@ -1,15 +1,16 @@
 /** @format */
 
-.Video {
-	position: absolute;
-	z-index: -1;
-	max-width: 80%;
-	max-height: 80%;
+.VideoWrapper {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
 }
 
-.PlayButton {
-	top: 50%;
-	transform: translateY(-50%);
+.Video {
+	z-index: 0;
+	max-width: 80%;
+	max-height: 80%;
 }
 
 .hidden {
