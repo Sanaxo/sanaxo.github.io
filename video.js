@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	console.log('Droggelbecher videoSource: ', videoSource);
 	const videoElement = document.createElement('video');
-	console.log('Droggelbecher video: ', video);
+	console.log('Droggelbecher video: ', videoElement);
 
 	videoElement.src = videoSource;
 	videoElement.poster = thumbnail;
