@@ -2,15 +2,15 @@
 
 document.addEventListener('load', () => {
 	const videoWrapper = document.querySelector('.Video');
-	const videoSource = videoElement.getAttribute('data-video');
-	const thumbnail = videoElement.getAttribute('data-thumbnail');
+	const videoSource = videoWrapper.getAttribute('data-video');
+	const thumbnail = videoWrapper.getAttribute('data-thumbnail');
 
 	console.log('Droggelbecher videoElement: ', videoElement);
 
 	console.log('Droggelbecher videoSource: ', videoSource);
-	const video = document.createElement('video');
+	const videoElement = document.createElement('video');
 	console.log('Droggelbecher video: ', video);
 
-	video.src = videoSource;
-	video.poster = thumbnail;
+	videoElement.src = videoSource;
+	videoElement.poster = thumbnail;
 });
