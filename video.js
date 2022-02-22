@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (videoElement.paused || videoElement.ended) {
 			setTimeout(() => {
 				videoElement.play();
-				animatePlayback()
+				animatePlayback();
 			}, 20);
 		} else {
 			setTimeout(() => {
