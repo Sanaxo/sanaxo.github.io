@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	videoElement.src = videoSource;
 	videoElement.poster = thumbnail;
 	videoElement.classList.add('Video');
-	videoElement.setAttribute('controls');
+	videoElement.setAttribute('controls', 'true');
 	videoWrapper.appendChild(videoElement);
 
 	function togglePlay() {
