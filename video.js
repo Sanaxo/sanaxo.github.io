@@ -39,10 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 				videoElement.play();
 				animatePlayback();
 			}, 20);
+			updatePlayButton();
+
 		} else {
 			setTimeout(() => {
 				videoElement.pause();
 			}, 20);
+			updatePlayButton();
 		}
 	}
 
@@ -51,7 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	playButton.addEventListener('click', togglePlay);
-	videoElement.addEventListener('play', updatePlayButton);
-	videoElement.addEventListener('pause', updatePlayButton);
 	videoElement.addEventListener('click', togglePlay);
 });
