@@ -15,23 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	videoElement.setAttribute('controls', 'true');
 	videoWrapper.appendChild(videoElement);
 
-	function togglePlay() {
-		if (videoElement.paused || videoElement.ended) {
-			setTimeout(() => {
-				videoElement.play();
-				animatePlayback();
-			}, 20);
-		} else {
-			setTimeout(() => {
-				videoElement.pause();
-			}, 20);
-		}
-	}
-
-	function updatePlayButton() {
-		playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
-	}
-
 	function animatePlayback() {
 		playButton.animate(
 			[
@@ -48,6 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
 				duration: 500,
 			}
 		);
+	}
+
+	function togglePlay() {
+		if (videoElement.paused || videoElement.ended) {
+			setTimeout(() => {
+				videoElement.play();
+				animatePlayback();
+			}, 20);
+		} else {
+			setTimeout(() => {
+				videoElement.pause();
+			}, 20);
+		}
+	}
+
+	function updatePlayButton() {
+		playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
 	}
 
 	playButton.addEventListener('click', togglePlay);
