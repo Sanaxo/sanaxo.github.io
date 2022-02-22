@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (videoElement.paused || videoElement.ended) {
 			setTimeout(() => {
 				videoElement.play();
+				animatePlayback()
 			}, 20);
 		} else {
 			setTimeout(() => {
@@ -53,5 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	videoElement.addEventListener('play', updatePlayButton);
 	videoElement.addEventListener('pause', updatePlayButton);
 	videoElement.addEventListener('click', togglePlay);
-	videoElement.addEventListener('click', animatePlayback);
 });
