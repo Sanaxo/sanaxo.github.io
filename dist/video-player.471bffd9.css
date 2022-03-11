@@ -2,31 +2,34 @@
 
 .VideoWrapper {
   position: relative;
+  width: 85vw;
+  margin: 0 auto;
+}
+
+.Controls {
   width: 100%;
+  height: 100%;
 }
 
 .VideoControls {
   position: absolute;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
   width: 100%;
   height: 40px;
-  bottom: 0;
-}
-
-.Control__Item {
-  position: relative;
+  bottom: 5px;
 }
 
 .PlayButton {
-  width: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   height: 100%;
 }
 
 .Time {
+  position: absolute;
+  left: 25px;
+  bottom: 0;
   color: rgb(255, 255, 255);
 }
 
@@ -35,13 +38,15 @@
   z-index: 1;
   width: 100%;
   height: 20px;
+  left: 0;
   bottom: 40px;
 }
 
 .ProgressBar {
+  position: absolute;
   appearance: none;
   border-radius: 2px;
-  width: 80%;
+  width: 95%;
   height: 8.4px;
   pointer-events: none;
   margin: 0 auto;
@@ -49,9 +54,10 @@
 }
 
 .Seek {
+  position: absolute;
   width: 100%;
   cursor: pointer;
-  margin: 0 5px;
+  margin: 0 auto;
 }
 
 .Seek:hover + .SeekTime {
@@ -59,9 +65,9 @@
 }
 
 .SeekTime {
+  position: absolute;
   z-index: 1;
   display: none;
-  position: absolute;
   bottom: 20px;
   font-size: 12px;
   padding: 3px;
@@ -72,20 +78,48 @@
 }
 
 .VolumeControls {
+  position: absolute;
+  left: 150px;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+}
+
+.VolumeSlider {
+  position: absolute;
+  left: 70px;
+  bottom: 0;
+  height: 100%;
+}
+
+.VolumeButton {
+  position: absolute;
 }
 
 .FullscreenButton {
+  position: absolute;
   min-width: 20px;
+  right: 0;
+  bottom: 0;
+  height: 100%;
 }
 
 .PIPButton {
+  position: absolute;
   min-width: 20px;
   margin: 0 5px;
+  bottom: 0;
+  right: 30px;
+  height: 100%;
 }
 
 .Video__Video {
   z-index: 0;
-  width: 100vw;
+  width: 100%;
+}
+
+.hide {
+  display: none;
 }
 
 /*# sourceMappingURL=video-player.471bffd9.css.map */
