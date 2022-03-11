@@ -1,0 +1,89 @@
+/** @format */
+
+.VideoWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.VideoControls {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+}
+
+.Control__Item {
+  position: relative;
+}
+
+.PlayButton {
+  width: 20px;
+  height: 100%;
+}
+
+.Time {
+  color: rgb(255, 255, 255);
+}
+
+.VideoProgress {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 20px;
+  bottom: 40px;
+}
+
+.ProgressBar {
+  appearance: none;
+  border-radius: 2px;
+  width: 80%;
+  height: 8.4px;
+  pointer-events: none;
+  margin: 0 auto;
+  display: none;
+}
+
+.Seek {
+  width: 100%;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.Seek:hover + .SeekTime {
+  display: block;
+}
+
+.SeekTime {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  font-size: 12px;
+  padding: 3px;
+  content: attr(data-title);
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.VolumeControls {
+}
+
+.FullscreenButton {
+  min-width: 20px;
+}
+
+.PIPButton {
+  min-width: 20px;
+  margin: 0 5px;
+}
+
+.Video__Video {
+  z-index: 0;
+  width: 100vw;
+}

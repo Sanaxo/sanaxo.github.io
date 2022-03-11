@@ -76,7 +76,7 @@
         const t = formatTime(skipTo);
         seekTime.textContent = `${t.minutes}:${t.seconds}`;
         const rect = videoElement.getBoundingClientRect();
-        seekTime.style.left = `${event.pageX - rect.left}px`;
+        seekTime.style.left = `${event.pageX - rect.left - 20}px`;
     }
     function skipAhead(event) {
         const skipTo = event.target.dataset.seek ? event.target.dataset.seek : event.target.value;
