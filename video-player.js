@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoWrapper = document.querySelector('.VideoWrapper');
   const videoElement = videoWrapper.querySelector('.Video__Video');
   const videoControls = videoWrapper.querySelector('.VideoControls');
-  const playbackIcons = videoWrapper.querySelectorAll('.playback-icon');
   const playButton = videoWrapper.querySelector('.PlayButton');
   const progressBar = videoWrapper.querySelector('.ProgressBar');
   const seekBar = videoWrapper.querySelector('.Seek');
@@ -39,41 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
     pipButton.classList.add('hidden');
   }
 
-  function animatePlayback() {
-    playButton.animate(
-      [
-        {
-          opacity: 1,
-          transform: 'scale(1)',
-        },
-        {
-          opacity: 0,
-          transform: 'scale(1.3)',
-        },
-      ],
-      {
-        duration: 500,
-      }
-    );
-  }
-
   function togglePlay() {
     if (videoElement.paused || videoElement.ended) {
       setTimeout(() => {
         videoElement.play();
-        animatePlayback();
+        hideControls();
       }, 20);
-      updatePlayButton();
     } else {
       setTimeout(() => {
         videoElement.pause();
+        showControls();
       }, 20);
-      updatePlayButton();
     }
-  }
-
-  function updatePlayButton() {
-    playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
   }
 
   function formatTime(timeInSeconds) {
@@ -176,10 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    videoControls.classList.add('hide');
+    videoControls.classList.add('transition');
+    setTimeout(() => {
+      videoControls.classList.remove('transition');
+      videoControls.classList.add('hide');
+    }, 120);
   }
 
-  // showControls displays the video controls
   function showControls() {
     videoControls.classList.remove('hide');
   }
@@ -195,8 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
   volumeButton.addEventListener('click', toggleMute);
   fullscreenButton.addEventListener('click', toggleFullScreen);
   pipButton.addEventListener('click', togglePip);
-  videoElement.addEventListener('mouseenter', showControls);
-  videoElement.addEventListener('mouseleave', hideControls);
   videoControls.addEventListener('mouseenter', showControls);
   videoControls.addEventListener('mouseleave', hideControls);
   videoElement.addEventListener('mousestop', hideControls);

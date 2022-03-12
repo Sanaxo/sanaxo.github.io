@@ -7,16 +7,31 @@
 }
 
 .Controls {
-  width: 100%;
   height: 100%;
 }
 
 .VideoControls {
   position: absolute;
   z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 7%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: opacity 100ms ease;
+}
+
+.Interface {
+  position: relative;
   width: 100%;
   height: 40px;
-  bottom: 5px;
 }
 
 .PlayButton {
@@ -28,8 +43,9 @@
 
 .Time {
   position: absolute;
-  left: 25px;
-  bottom: 0;
+  left: 40px;
+  bottom: 10px;
+  margin: auto 5px;
   color: rgb(255, 255, 255);
 }
 
@@ -79,27 +95,29 @@
 
 .VolumeControls {
   position: absolute;
-  left: 150px;
+  left: 135px;
   height: 100%;
-  width: 100%;
   bottom: 0;
 }
 
 .VolumeSlider {
   position: absolute;
-  left: 70px;
-  bottom: 0;
-  height: 100%;
+  left: 45px;
+  bottom: 10px;
 }
 
 .VolumeButton {
   position: absolute;
 }
 
+.Muted {
+  display: none;
+}
+
 .FullscreenButton {
   position: absolute;
   min-width: 20px;
-  right: 0;
+  right: 5px;
   bottom: 0;
   height: 100%;
 }
@@ -109,7 +127,7 @@
   min-width: 20px;
   margin: 0 5px;
   bottom: 0;
-  right: 30px;
+  right: 45px;
   height: 100%;
 }
 
@@ -118,8 +136,14 @@
   width: 100%;
 }
 
+.transition {
+  opacity: 0;
+  transition: opacity 100ms ease;
+}
+
 .hide {
   display: none;
+  transition: opacity 100ms ease;
 }
 
 /*# sourceMappingURL=video-player.471bffd9.css.map */

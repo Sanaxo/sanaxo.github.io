@@ -13,56 +13,63 @@
   <body>
     <div class="VideoWrapper">
       <div class="VideoControls">
-        <div class="VideoProgress playback-icon">
+        <div class="VideoProgress">
           <progress class="ProgressBar" value="0" min="0"></progress>
           <input class="Seek" value="0" min="0" type="range" step="1">
           <div class="SeekTime">00:00</div>
         </div>
-        <div class="PlayButton">
-          <svg class="Controls" viewbox="0 0 100 100">
-            <circle id="shape0" transform="translate(1.44, 1.44)" r="34.56" cx="34.56" cy="34.56" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel"></circle>
-            <path id="shape1" transform="translate(23.76, 23.76)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" d="M23.7151 12.24L0 0L0 23.76L23.7151 12.24"></path>
-            <path id="shape2" transform="translate(29.52, 23.76)" fill="#555555" fill-rule="evenodd" stroke="#555555" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" d="M17.9551 12.24L0 0L0 23.76L17.9551 12.24"></path>
-          </svg>
-        </div>
-        <div class="Time">
-          <time class="TimeElapsed">00:00</time>
-          <span> / </span>
-          <time class="Duration">00:00</time>
-        </div>
-        <div class="VolumeControls playback-icon">
-          <div data-title="Mute" class="VolumeButton">
-            <svg class="Controls" viewbox="0 0 100 100">
+        <div class="Interface">
+          <div class="PlayButton">
+            <svg class="Controls" viewbox="0 0 72 72">
               <defs></defs>
-              <rect id="shape0" transform="translate(3.6, 27.36)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" width="14.4" height="17.28"></rect>
-              <path id="shape1" transform="translate(18, 13.4279583699706)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" d="M18 44.675L0 32.138L0 13.1098L18 0L18 44.675"></path>
-              <path id="shape2" transform="translate(42.765820021897, 20.3010365877755)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" d="M0.700036 28.956L5.60029 33.699C12.2293 22.5415 13.6199 11.3268 4.75418 0L0 3.45896C7.60119 12.5987 8.70175 21.1731 0.700036 28.956"></path>
-              <path id="shape0" transform="matrix(0.999999990100976 0 0 0.999999990100976 52.9346921518649 12.6124421755251)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" d="M0.941352 40.1917L7.53082 46.7751C16.445 31.2882 18.3149 15.7219 6.39304 0L0 4.80113C10.2215 17.4873 11.7014 29.3888 0.941352 40.1917"></path>
+              <path id="shape0" transform="translate(25.4558445621102, 18.2009288619088)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0.155601 0L29.0197 18.2055L0 35.8927L0.155601 0"></path>
             </svg>
           </div>
+          <div class="Time">
+            <time class="TimeElapsed">00:00</time>
+            <span> / </span>
+            <time class="Duration">00:00</time>
+          </div>
+          <div class="VolumeControls playback-icon">
+            <div data-title="Mute" class="VolumeButton">
+              <svg class="Controls Unmuted" width="40px" viewbox="0 0 72 72">
+                <defs></defs>
+                <rect id="shape0" transform="translate(16.56, 29.52)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="7.2" height="13.68"></rect>
+                <path id="shape1" transform="translate(23.6739348258694, 23.6739348258694)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0 4.26385L12.3261 0L12.3261 23.8649L0.0636396 20.6192L0 4.26385"></path>
+                <path id="shape2" transform="translate(42.5112593109697, 24.1305303395088)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0C3.29753 7.8894 4.14894 15.7963 0 23.7389"></path>
+                <path id="shape3" transform="translate(50.8480481878216, 17.9763906421418)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M1.42109e-14 36.0472C6.15281 23.0556 4.84509 11.2463 0 0"></path>
+                <path id="shape4" transform="translate(58.9939182354325, 9.53051213806266)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M7.10543e-15 52.939C7.82249 35.3988 8.46305 17.7726 0 0"></path>
+              </svg>
+              <svg class="Controls Muted" width="40px" viewbox="0 0 72 72">
+                <defs></defs>
+                <rect id="shape0" transform="translate(11.52, 30.24)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="7.2" height="13.68"></rect>
+                <path id="shape1" transform="translate(18.6339348258694, 24.3939348258694)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0 4.26385L12.3261 0L12.3261 23.8649L0.0636396 20.6192L0 4.26385"></path>
+                <path id="shape2" transform="translate(3.50017862729016, 23.7375750541678)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L32.4998 30.2288"></path>
+              </svg>
+            </div>
 
-          <input class="VolumeSlider" value="1" type="range" max="1" min="0" step="0.01">
-        </div>
-        <div class="PIPButton">
-          <svg class="Controls" viewbox="0 0 100 100">
-            <defs></defs>
-            <rect id="shape0" transform="translate(2.16, 15.12)" fill="#003bff" fill-rule="evenodd" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" width="36" height="23.04"></rect>
-            <rect id="shape1" transform="translate(25.92, 30.24)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="bevel" width="39.6" height="22.32"></rect>
-          </svg>
-        </div>
-        <div class="FullscreenButton">
-          <svg class="Controls" viewbox="0 0 100 100">
-            <defs></defs>
-            <path id="shape0" transform="translate(1.33643178862088, 2.54558435927787)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L8.88178e-16 15.7319"></path>
-            <path id="shape1" transform="translate(1.52735061556672, 2.22738631436814)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L14.1986 0"></path>
-            <path id="shape2" transform="translate(55.7482974681853, 2.29102592335008)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L13.4929 0"></path>
-            <path id="shape3" transform="translate(69.239894572358, 2.48194475029592)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L0 18.7231"></path>
-
-            <path id="shape4" transform="translate(1.46371100658477, 57.5938461286618)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L6.66134e-16 11.8377"></path>
-            <path id="shape5" transform="translate(1.59099022454867, 69.4308133993039)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L10.1189 0"></path>
-            <path id="shape6" transform="translate(60.3303493148855, 69.1762549633761)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L9.03705 0"></path>
-            <path id="shape7" transform="translate(69.3671737903219, 60.1385278438506)" fill="none" stroke="#003bff" stroke-width="1.44" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 8.97409L0 0"></path>
-          </svg>
+            <input class="VolumeSlider" value="1" type="range" max="1" min="0" step="0.01">
+          </div>
+          <div class="PIPButton">
+            <svg class="Controls" viewbox="0 0 72 72">
+              <defs></defs>
+              <rect id="shape0" transform="translate(7.92, 7.2)" fill="#0000ff" fill-rule="evenodd" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="48.96" height="34.56"></rect>
+              <rect id="shape1" transform="translate(17.28, 36)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="48.24" height="28.8"></rect>
+            </svg>
+          </div>
+          <div class="FullscreenButton">
+            <svg class="Controls" viewbox="0 0 72 72">
+              <defs></defs>
+              <path id="shape0" transform="translate(3.55500016941921, 3.60000017156376)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.16L0 0"></path>
+              <path id="shape1" transform="translate(3.55500016941922, 3.60000017156376)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 4.88498e-15L20.1602 0"></path>
+              <path id="shape2" transform="translate(47.4750022624971, 3.6450001737083)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 5.32907e-15L20.8839 0"></path>
+              <path id="shape3" transform="translate(68.3550032575669, 3.60000017156376)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L0 20.1866"></path>
+              <path id="shape4" transform="translate(68.3550032575669, 47.5200022646417)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L0 20.9298"></path>
+              <path id="shape5" transform="translate(47.5117733733079, 68.445003261856)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M20.7982 0L0 0"></path>
+              <path id="shape6" transform="translate(3.46319623666399, 68.4000032597115)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M20.2068 0L0 0"></path>
+              <path id="shape7" transform="translate(3.60000017156376, 47.474953875454)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.925L0 0"></path>
+            </svg>
+          </div>
         </div>
       </div>
       <video class="Video__Video" src="/XIV.aa0894f0.mp4"></video>
