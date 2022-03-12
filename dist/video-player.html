@@ -20,9 +20,14 @@
         </div>
         <div class="Interface">
           <div class="PlayButton">
-            <svg class="Controls" viewbox="0 0 72 72">
+            <svg class="InlinePlayIcon Controls" viewbox="0 0 72 72">
               <defs></defs>
               <path id="shape0" transform="translate(25.4558445621102, 18.2009288619088)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0.155601 0L29.0197 18.2055L0 35.8927L0.155601 0"></path>
+            </svg>
+            <svg class="InlinePauseIcon Controls hide" viewbox="0 0 72 72">
+              <defs></defs>
+              <rect id="shape0" transform="translate(18.2869935757467, 18)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" width="12.24" height="36"></rect>
+              <rect id="shape1" transform="translate(42.5548797871871, 18)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" width="11.52" height="36"></rect>
             </svg>
           </div>
           <div class="Time">
@@ -30,21 +35,32 @@
             <span> / </span>
             <time class="Duration">00:00</time>
           </div>
-          <div class="VolumeControls playback-icon">
+          <div class="VolumeControls">
             <div data-title="Mute" class="VolumeButton">
-              <svg class="Controls Unmuted" width="40px" viewbox="0 0 72 72">
+              <svg class="Unmuted Controls" viewbox="0 0 72 72">
                 <defs></defs>
-                <rect id="shape0" transform="translate(16.56, 29.52)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="7.2" height="13.68"></rect>
-                <path id="shape1" transform="translate(23.6739348258694, 23.6739348258694)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0 4.26385L12.3261 0L12.3261 23.8649L0.0636396 20.6192L0 4.26385"></path>
-                <path id="shape2" transform="translate(42.5112593109697, 24.1305303395088)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0C3.29753 7.8894 4.14894 15.7963 0 23.7389"></path>
-                <path id="shape3" transform="translate(50.8480481878216, 17.9763906421418)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M1.42109e-14 36.0472C6.15281 23.0556 4.84509 11.2463 0 0"></path>
-                <path id="shape4" transform="translate(58.9939182354325, 9.53051213806266)" fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M7.10543e-15 52.939C7.82249 35.3988 8.46305 17.7726 0 0"></path>
+                <rect id="shape0" transform="translate(3.6, 23.76)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" width="20.16" height="23.76"></rect>
+                <path id="shape1" transform="translate(23.7375741502661, 3.62745771197096)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" d="M0 20.1738L30.4834 0L30.2925 64.8488L0.0636396 43.975Z"></path>
               </svg>
-              <svg class="Controls Muted" width="40px" viewbox="0 0 72 72">
+              <svg class="Mute hide Controls" viewbox="0 0 72 72">
                 <defs></defs>
-                <rect id="shape0" transform="translate(11.52, 30.24)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" width="7.2" height="13.68"></rect>
-                <path id="shape1" transform="translate(18.6339348258694, 24.3939348258694)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="bevel" d="M0 4.26385L12.3261 0L12.3261 23.8649L0.0636396 20.6192L0 4.26385"></path>
-                <path id="shape2" transform="translate(3.50017862729016, 23.7375750541678)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L32.4998 30.2288"></path>
+                <rect id="shape0" transform="translate(3.6, 23.76)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" width="20.16" height="23.76"></rect>
+                <path id="shape1" transform="translate(23.7375741502661, 3.62745771197096)" fill="#ffffff" fill-rule="evenodd" stroke="#ffffff" stroke-width="2.16" stroke-linecap="square" stroke-linejoin="bevel" d="M0 20.1738L30.4834 0L30.2925 64.8488L0.0636396 43.975Z"></path>
+                <path id="shape2" transform="translate(3.51000022728469, 3.69000023894031)" fill="none" stroke="#2500e2" stroke-width="4.32" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L64.6203 64.6203"></path>
+              </svg>
+            </div>
+            <div class="VolumeLevel">
+              <svg class="VolumeLow VLevel Controls" viewbox="0 0 72 72">
+                <defs></defs>
+                <path id="shape0" transform="translate(36, 23.6657566711579)" fill="none" stroke="#ffffff" stroke-width="4.32" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M7.10543e-15 23.8542C7.17308 16.0332 6.0052 8.0606 0 0"></path>
+              </svg>
+              <svg class="VolumeMid VLevel Controls" viewbox="0 0 72 72">
+                <defs></defs>
+                <path id="shape0" transform="translate(36, 18.0900011713903)" fill="none" stroke="#ffffff" stroke-width="4.32" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M7.10543e-15 36.09C12.7558 23.1675 11.2207 11.2441 0 0"></path>
+              </svg>
+              <svg class="VolumeHigh VLevel Controls" viewbox="0 0 72 72">
+                <defs></defs>
+                <path id="shape0" transform="translate(36, 3.6000002331125)" fill="none" stroke="#ffffff" stroke-width="4.32" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M7.10543e-15 64.89C15.1661 43.26 15.3137 21.63 0 0"></path>
               </svg>
             </div>
 
@@ -58,7 +74,7 @@
             </svg>
           </div>
           <div class="FullscreenButton">
-            <svg class="Controls" viewbox="0 0 72 72">
+            <svg class="Fullscreen Controls" viewbox="0 0 72 72">
               <defs></defs>
               <path id="shape0" transform="translate(3.55500016941921, 3.60000017156376)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.16L0 0"></path>
               <path id="shape1" transform="translate(3.55500016941922, 3.60000017156376)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 4.88498e-15L20.1602 0"></path>
@@ -68,6 +84,17 @@
               <path id="shape5" transform="translate(47.5117733733079, 68.445003261856)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M20.7982 0L0 0"></path>
               <path id="shape6" transform="translate(3.46319623666399, 68.4000032597115)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M20.2068 0L0 0"></path>
               <path id="shape7" transform="translate(3.60000017156376, 47.474953875454)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.925L0 0"></path>
+            </svg>
+            <svg class="ExitFullscreen Controls hide" viewbox="0 0 72 72">
+              <defs></defs>
+              <path id="shape0" transform="translate(3.55500005682094, 23.7600003797653)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 7.10543e-15L20.1602 0"></path>
+              <path id="shape1" transform="translate(23.7600003797653, 3.6899497234704)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.1151L0 0"></path>
+              <path id="shape2" transform="translate(47.5200007595305, 3.68979826626795)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 20.0702L0 0"></path>
+              <path id="shape3" transform="translate(47.4750007588113, 23.7600003797653)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L20.88 0"></path>
+              <path id="shape4" transform="translate(23.7150011907759, 47.5141483659334)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M3.55271e-15 20.9309L0 0"></path>
+              <path id="shape5" transform="translate(3.5059595583172, 47.61000239059)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M20.299 0L0 0"></path>
+              <path id="shape6" transform="translate(47.4300023815518, 47.4292315177071)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 21.0158L0 0"></path>
+              <path id="shape7" transform="translate(47.3850023792923, 47.5650023883305)" fill="none" stroke="#0000ff" stroke-width="3.6" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L21.0306 0"></path>
             </svg>
           </div>
         </div>
