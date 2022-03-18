@@ -61,7 +61,6 @@
 
 .ProgressBar {
   position: absolute;
-  appearance: none;
   border-radius: 2px;
   width: 95%;
   height: 8.4px;
@@ -75,6 +74,116 @@
   width: 100%;
   cursor: pointer;
   margin: 0 auto;
+  -webkit-appearance: none;
+}
+
+/*progress support*/
+.Seek.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 20px + var(--ratio) * (100% - 20px));
+}
+
+.Seek:focus {
+  outline: none;
+}
+
+/*webkit*/
+.Seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #ff00e6;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: calc(max((1em - 1px - 1px) * 0.5, 0px) - 20px * 0.5);
+}
+
+.Seek::-webkit-slider-runnable-track {
+  height: 1em;
+  border: 1px solid #760050;
+  border-radius: 8px;
+  background: #ffffff00;
+  box-shadow: none;
+}
+
+.Seek::-webkit-slider-thumb:hover {
+  background: linear-gradient(to right, #c300b1, #71006a);
+}
+
+.Seek.slider-progress::-webkit-slider-runnable-track {
+  background: linear-gradient(#b1008d, #b1008d) 0 / var(--sx) 100% no-repeat, #ffffff00;
+}
+
+/*mozilla*/
+.Seek::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #ff00e6;
+  border: none;
+  box-shadow: 0 0 2px black;
+}
+
+.Seek::-moz-range-track {
+  height: max(calc(1em - 1px - 1px), 0px);
+  border: 1px solid #760050;
+  border-radius: 8px;
+  background: #ffffff00;
+  box-shadow: none;
+}
+
+.Seek::-moz-range-thumb:hover {
+  background: linear-gradient(to right, #c300b1, #71006a);
+}
+
+.Seek.slider-progress::-moz-range-track {
+  background: linear-gradient(#b1008d, #b1008d) 0 / var(--sx) 100% no-repeat, #ffffff00;
+}
+
+/*ms*/
+.Seek::-ms-fill-upper {
+  background: transparent;
+  border-color: transparent;
+}
+
+.Seek::-ms-fill-lower {
+  background: transparent;
+  border-color: transparent;
+}
+
+.Seek::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #ff00e6;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.Seek::-ms-track {
+  height: 1em;
+  border-radius: 8px;
+  background: #ffffff00;
+  border: 1px solid #760050;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.Seek::-ms-thumb:hover {
+  background: linear-gradient(to right, #c300b1, #71006a);
+}
+
+.Seek.slider-progress::-ms-fill-lower {
+  height: max(calc(1em - 1px - 1px), 0px);
+  border-radius: 8px 0 0 8px;
+  margin: -1px 0 -1px -1px;
+  background: #b1008d;
+  border: 1px solid #760050;
+  border-right-width: 0;
 }
 
 .Seek:hover + .SeekTime {
@@ -83,7 +192,6 @@
 
 .SeekTime {
   position: absolute;
-  z-index: 1;
   display: none;
   bottom: 20px;
   font-size: 12px;

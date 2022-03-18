@@ -1,18 +1,25 @@
-/** @format */ // mousestop event which triggers if mouse movement stops
+/** @format */ for (let e of document.querySelectorAll('input[type="range"].slider-progress')){
+    e.style.setProperty('--value', e.value);
+    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+    e.addEventListener('input', ()=>e.style.setProperty('--value', e.value)
+    );
+}
+// mousestop event which triggers if mouse movement stops
 (function(mouseStopDelay) {
     var timeout;
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function(e1) {
         clearTimeout(timeout);
         timeout = setTimeout(function() {
             var event = new CustomEvent('mousestop', {
                 detail: {
-                    clientX: e.clientX,
-                    clientY: e.clientY
+                    clientX: e1.clientX,
+                    clientY: e1.clientY
                 },
                 bubbles: true,
                 cancelable: true
             });
-            e.target.dispatchEvent(event);
+            e1.target.dispatchEvent(event);
         }, mouseStopDelay);
     });
 })(1000);
