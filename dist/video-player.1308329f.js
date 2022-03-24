@@ -1,25 +1,18 @@
-/** @format */ for (let e of document.querySelectorAll('input[type="range"].slider-progress')){
-    e.style.setProperty('--value', e.value);
-    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
-    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
-    e.addEventListener('input', ()=>e.style.setProperty('--value', e.value)
-    );
-}
-// mousestop event which triggers if mouse movement stops
+/** @format */ // mousestop event which triggers if mouse movement stops
 (function(mouseStopDelay) {
     var timeout;
-    document.addEventListener('mousemove', function(e1) {
+    document.addEventListener('mousemove', function(e) {
         clearTimeout(timeout);
         timeout = setTimeout(function() {
             var event = new CustomEvent('mousestop', {
                 detail: {
-                    clientX: e1.clientX,
-                    clientY: e1.clientY
+                    clientX: e.clientX,
+                    clientY: e.clientY
                 },
                 bubbles: true,
                 cancelable: true
             });
-            e1.target.dispatchEvent(event);
+            e.target.dispatchEvent(event);
         }, mouseStopDelay);
     });
 })(1000);
@@ -82,6 +75,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
         const time = formatTime(videoDuration);
         duration.innerText = `${time.minutes}:${time.seconds}`;
         duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+        for (let e of document.querySelectorAll('input[type="range"].slider-progress')){
+            console.log('Droggelbecher e: ', e);
+            e.style.setProperty('--value', e.value);
+            e.style.setProperty('--min', e.getAttribute('min') == '' ? '0' : e.getAttribute('min'));
+            e.style.setProperty('--max', videoDuration == '' ? '100' : videoDuration);
+            e.addEventListener('input', ()=>e.style.setProperty('--value', e.value)
+            );
+        }
     }
     function updateProgress() {
         seekBar.value = Math.floor(videoElement.currentTime);
