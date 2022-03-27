@@ -80,6 +80,7 @@
 }
 
 /*progress support*/
+
 .Seek.slider-progress {
   --range: calc(var(--max) - var(--min));
   --ratio: calc((var(--value) - var(--min)) / var(--range));
@@ -91,12 +92,13 @@
 }
 
 /*webkit*/
+
 .Seek::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 12px;
   height: 12px;
   border-radius: 20px;
-  background: #4e86ff;
+  background-image: url("progress bar 3.a62caab9.png");
   border: none;
   box-shadow: 0 0 2px black;
   margin-top: calc(max((1em - 1px - 1px) * 0.5, 0px) - 17px * 0.5);
@@ -104,21 +106,22 @@
 
 .Seek::-webkit-slider-runnable-track {
   height: 8px;
-  border: 1px solid #2869f7;
   border-radius: 8px;
   background: #ffffff00;
   box-shadow: none;
 }
 
 .Seek::-webkit-slider-thumb:hover {
-  background: linear-gradient(to right, #2869f7, #2869f7);
+  background-image: linear-gradient(to right, #2869f7, #2869f7);
 }
 
 .Seek.slider-progress::-webkit-slider-runnable-track {
-  background: linear-gradient(#2869f7, #2869f7) 0 / var(--sx) 100% no-repeat, #ffffff00;
+  background: linear-gradient(#2869f7, #2869f7) 0 / var(--sx) 100% no-repeat,
+    url("progress bar 3.a62caab9.png");
 }
 
 /*mozilla*/
+
 .Seek::-moz-range-thumb {
   width: 20px;
   height: 20px;
@@ -145,6 +148,7 @@
 }
 
 /*ms*/
+
 .Seek::-ms-fill-upper {
   background: transparent;
   border-color: transparent;
