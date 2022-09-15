@@ -1,11 +1,15 @@
 /** @format */
-//detect gyro
-var gyroPresent = false;
-window.addEventListener('devicemotion', function (event) {
-  if (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)
-    gyroPresent = true;
-});
-//-------------------
+
+var canHandleOrientation;
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', handleOrientation, false);
+}
+
+function handleOrientation(event) {
+  console.log('Orientation:' + event.alpha + ', ' + event.beta + ', ' + event.gamma);
+  canHandleOrientation = event; // will be either null or with event data
+}
+//-----detect----gyroscope------
 
 document.addEventListener('DOMContentLoaded', () => {
   const megamenuItemElements = document.querySelectorAll('[data-js-menu-item]');
@@ -104,58 +108,58 @@ document.addEventListener('DOMContentLoaded', () => {
   navDrawerTriggerElement.addEventListener('click', openNavDrawer);
 
   //------------------------------------MOVE------------------------------------
-  let constrain = 20;
-  let constrain2 = 80;
-  const mouseOverContainer = document.getElementById('Move__Container');
-  const moveForeground = document.getElementById('Foreground2');
-  const moveBackground = document.getElementById('Background2');
+  if (!canHandleOrientation) {
+    let constrain = 20;
+    let constrain2 = 80;
+    const mouseOverContainer = document.getElementById('Move__Container');
+    const moveForeground = document.getElementById('Foreground2');
+    const moveBackground = document.getElementById('Background2');
 
-  if (!mouseOverContainer || !moveForeground || !moveBackground) return;
+    if (!mouseOverContainer || !moveForeground || !moveBackground) return;
 
-  function transforms(x, y, el) {
-    let box = el.getBoundingClientRect();
-    let calcY = -(y - box.y - box.height / 2) / constrain;
-    let calcX = -(x - box.x - box.width / 2) / constrain;
+    function transforms(x, y, el) {
+      let box = el.getBoundingClientRect();
+      let calcY = -(y - box.y - box.height / 2) / constrain;
+      let calcX = -(x - box.x - box.width / 2) / constrain;
 
-    return 'translateX(' + calcX + 'px) ' + '   translateY(' + calcY + 'px) ';
-  }
+      return 'translateX(' + calcX + 'px) ' + '   translateY(' + calcY + 'px) ';
+    }
 
-  function transformElement(el, xyEl) {
-    el.style.transform = transforms.apply(null, xyEl);
-  }
+    function transformElement(el, xyEl) {
+      el.style.transform = transforms.apply(null, xyEl);
+    }
 
-  mouseOverContainer.onmousemove = function (e) {
-    let xy = [e.clientX, e.clientY];
-    let position = xy.concat([moveForeground]);
-    let position2 = xy.concat([moveBackground]);
+    mouseOverContainer.onmousemove = function (e) {
+      let xy = [e.clientX, e.clientY];
+      let position = xy.concat([moveForeground]);
+      let position2 = xy.concat([moveBackground]);
 
-    window.requestAnimationFrame(function () {
-      transformElement(moveForeground, position);
-      transformElement2(moveBackground, position2);
-    });
-  };
+      window.requestAnimationFrame(function () {
+        transformElement(moveForeground, position);
+        transformElement2(moveBackground, position2);
+      });
+    };
 
-  function transforms2(x2, y2, el2) {
-    let box2 = el2.getBoundingClientRect();
-    let calcY2 = -(y2 - box2.y - box2.height / 2) / constrain2;
-    let calcX2 = (x2 - box2.x - box2.width / 2) / constrain2;
+    function transforms2(x2, y2, el2) {
+      let box2 = el2.getBoundingClientRect();
+      let calcY2 = -(y2 - box2.y - box2.height / 2) / constrain2;
+      let calcX2 = (x2 - box2.x - box2.width / 2) / constrain2;
 
-    return 'translateX(' + calcX2 + 'px) ' + '   translateY(' + calcY2 + 'px) ';
-  }
+      return 'translateX(' + calcX2 + 'px) ' + '   translateY(' + calcY2 + 'px) ';
+    }
 
-  function transformElement2(el2, xyE2) {
-    el2.style.transform = transforms2.apply(null, xyE2);
+    function transformElement2(el2, xyE2) {
+      el2.style.transform = transforms2.apply(null, xyE2);
+    }
   }
   //--------------------------------MOVE-------------------------------------------------
 
   //--------------------------------GyroDevices----------------------------------------
-  console.log('window.DeviceOrientationEvent: ', gyroPresent);
-  if (gyroPresent) {
+  console.log('canHandleOrientation: ', canHandleOrientation);
+  if (canHandleOrientation) {
     let counter = 0;
     const updateRate = 10;
     const limit = 45;
-    const tiltable = document.getElementById('img1');
-    const tiltable2 = document.getElementById('img0');
 
     let constraint = -100;
 
@@ -192,11 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let style2 =
           'perspective(100px) rotateX(' + position2 + 'deg) rotateY(' + position + 'deg)';
 
-        tiltable.style.transform = style;
-        tiltable2.style.transform = style2;
+        moveForeground.style.transform = style;
+        moveBackground.style.transform = style2;
       }
     });
-  } else return;
+  }
   //--------------------------------MobileDevices----------------------------------------
 });
 window.addEventListener('load', () => {
