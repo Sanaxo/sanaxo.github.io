@@ -6,6 +6,7 @@ if (window.DeviceOrientationEvent) {
 }
 
 function handleOrientation(event) {
+  console.log('event: ', event);
   canHandleOrientation = event; // will be either null or with event data
 }
 //-----detect----gyroscope------
