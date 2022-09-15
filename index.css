@@ -46,6 +46,15 @@ p {
   margin: 0;
 }
 
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
 .Overlay {
   opacity: 0;
   position: fixed;
@@ -72,6 +81,7 @@ p {
 .HamburgerSVG {
   height: 100%;
   width: 100%;
+  transform: scaleY(0.87);
 }
 
 .Megamenu {
@@ -137,10 +147,8 @@ p {
   overflow: hidden;
   height: 85vh;
   margin-bottom: 64px;
-}
-
-.Main[data-container] {
-  transition: opacity 150ms ease-in-out;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
 }
 
 .swiper-container {
@@ -227,9 +235,52 @@ p {
   border-radius: 48px;
 }
 
-.HamburgerSVG {
-  height: 100%;
+.Image__Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Image {
+  position: absolute;
+  height: 120%;
+  width: 120%;
+}
+
+[data-js-image='Foreground'] {
+  z-index: 1;
+  left: -50%;
+}
+[data-js-image='Background'] {
+  z-index: 0;
+  top: -50%;
+  left: -50%;
+}
+
+.Move__Container {
+  width: 75%;
+  height: 60vh;
+  margin: auto;
+}
+
+.Move__Frame {
+  overflow: hidden;
+  border: solid 5px black;
+  position: relative;
   width: 100%;
+  height: 100%;
+}
+
+[data-js-image='Foreground2'] {
+  z-index: 1;
+  left: -50%;
+}
+[data-js-image='Background2'] {
+  z-index: 0;
+  top: -50%;
+  left: -50%;
 }
 
 @media screen and (max-width: 640px) {
@@ -241,7 +292,7 @@ p {
     top: 0;
     left: -100%;
     height: 100vh;
-    width: 40%;
+    width: 50%;
     transition: left 500ms ease-in-out;
   }
 
@@ -256,16 +307,17 @@ p {
   .MenuItem {
   }
 
+  .Main {
+    margin-top: 64px;
+  }
+
   .Description {
     margin-bottom: 64px;
   }
 
   .swiper-container .swiper-button-prev,
   .swiper-container .swiper-button-next {
-    height: 64px;
-    width: 64px;
-    top: unset;
-    bottom: 0;
+    display: none;
   }
   .swiper-container .swiper-button-next {
     right: 0;

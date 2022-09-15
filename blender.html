@@ -19,63 +19,56 @@
     </div>
     <div class="Megamenu" data-js-megamenu>
       <ul class="MenuItemList">
-        <li class="MenuItem" style="--after-right: 0"><a href="./index.html">Sketches</a></li>
+        <li class="MenuItem" style="--after-right: 100%"><a href="./index.html">Sketches</a></li>
         <li class="MenuItem" style="--after-right: 100%">
           <a href="./2dimages.html">2D Images</a>
         </li>
-        <li class="MenuItem" style="--after-right: 100%"><a href="./blender.html">Blender</a></li>
+        <li class="MenuItem" style="--after-right: 0"><a href="./blender.html">Blender</a></li>
         <li class="MenuItem" style="--after-right: 100%">
           <a href="./misc.html">Miscellaneous</a>
         </li>
       </ul>
     </div>
     <div class="Main" data-js-main>
-      <div class="swiper-container gallery-top Sketches-Swiper">
+      <div class="swiper-container gallery-top DDImages">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img
               class="Image lazyload"
-              data-js-image="0"
-              data-src="./sketches/Xion twitter.png"
-              alt="Sketch made from Manga"
-            />
-            <p class="Description">Sketch made from Manga</p>
-          </div>
-          <div class="swiper-slide">
-            <img
-              class="Image lazyload"
               data-js-image="1"
-              data-src="./sketches/23 06 19.png"
-              alt="Sketch made while watching Youtube Videos"
+              data-src="./blender/polocola3.png"
+              alt="A can of a fictional beverage"
             />
-            <p class="Description">Sketch made while watching Youtube Videos</p>
+            <p class="Description">A can of a fictional beverage</p>
           </div>
           <div class="swiper-slide">
             <img
               class="Image lazyload"
               data-js-image="2"
-              data-src="./sketches/30 04 20.png"
-              alt="A sketch made to kill time while waiting"
+              data-src="./blender/bottle1 .png"
+              alt="A bottle of a PoloCola"
             />
-            <p class="Description">A sketch made to kill time while waiting</p>
+            <p class="Description">A bottle of a fictional beverage</p>
+          </div>
+          <div class="swiper-slide">
+            <img
+              class="Image lazyload"
+              data-js-image="2"
+              data-src="./blender/bottle2 .png"
+              alt="The same bottle of PoloCola using different shaders"
+            />
+            <p class="Description">A bottle of a fictional beverage</p>
           </div>
           <div class="swiper-slide">
             <img
               class="Image lazyload"
               data-js-image="3"
-              data-src="./sketches/23.08.22.png"
-              alt="A sketch based on a screenshot of the game Code Vein"
+              data-src="./blender/Flacon.png"
+              alt="A render of Flacon based on a pre-production design of a real product"
             />
-            <p class="Description">A sketch based on a screenshot of the game Code Vein</p>
-          </div>
-          <div class="swiper-slide">
-            <img
-              class="Image lazyload"
-              data-js-image="4"
-              data-src="./sketches/Avatar Manga Test2.png"
-              alt="Sketch made using techniques from a book on how to draw manga"
-            />
-            <p class="Description">Sketch made using techniques from a book on how to draw manga</p>
+            <p class="Description">
+              A render of Flacon based on a pre-production design of a real product
+            </p>
           </div>
         </div>
         <!-- Add Arrows -->
@@ -118,40 +111,33 @@
             <img
               class="Thumbnail__Image lazyload"
               data-js-image="0"
-              data-src="./sketches/Xion twitter.png"
-              alt="Sketch made from Manga"
+              data-src="./blender/polocola3.png"
+              alt="A can of a fictional beverage"
             />
           </div>
           <div class="swiper-slide">
             <img
               class="Thumbnail__Image lazyload"
               data-js-image="1"
-              data-src="./sketches/23 06 19.png"
-              alt="Sketch made while watching Youtube Videos"
+              data-src="./blender/bottle1 .png"
+              alt="A bottle of a PoloCola"
+            />
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              class="Thumbnail__Image lazyload"
+              data-js-image="2"
+              data-src="./blender/bottle2 .png"
+              alt="The same bottle of PoloCola using different shaders"
             />
           </div>
           <div class="swiper-slide">
             <img
               class="Thumbnail__Image lazyload"
               data-js-image="2"
-              data-src="./sketches/30 04 20.png"
-              alt="A sketch made to kill time while waiting"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              class="Thumbnail__Image lazyload"
-              data-js-image="3"
-              data-src="./sketches/23.08.22.png"
-              alt="A sketch based on a screenshot of the game Code Vein"
-            />
-          </div>
-          <div class="swiper-slide">
-            <img
-              class="Thumbnail__Image lazyload"
-              data-js-image="4"
-              data-src="./sketches/Avatar Manga Test2.png"
-              alt="Sketch made using techniques from a book on how to draw manga"
+              data-src="./blender/Flacon.png"
+              alt="A render of Flacon based on a pre-production design of a real product"
             />
           </div>
         </div>
@@ -162,14 +148,15 @@
 
       <!-- Initialize Swiper -->
       <script>
-        var sketchesGalleryThumbs = new Swiper('.gallery-thumbs', {
+        var ddImagesGalleryThumbs = new Swiper('.gallery-thumbs', {
           spaceBetween: 10,
           slidesPerView: 'auto',
           freeMode: true,
           watchSlidesVisibility: true,
           watchSlidesProgress: true,
+          centerInsufficientSlides: true,
         });
-        var sketchesGalleryTop = new Swiper('.gallery-top', {
+        var ddImagesGalleryTop = new Swiper('.gallery-top', {
           spaceBetween: 10,
           zoom: {
             maxRatio: 5,
@@ -179,7 +166,7 @@
             prevEl: '.swiper-button-prev',
           },
           thumbs: {
-            swiper: sketchesGalleryThumbs,
+            swiper: ddImagesGalleryThumbs,
           },
         });
       </script>
