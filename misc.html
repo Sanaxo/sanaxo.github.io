@@ -28,7 +28,9 @@
         </li>
       </ul>
     </div>
-    <div class="Main" data-js-main>
+    <div class="Main Misc" data-js-main>
+      <div class="ParallaxDemo">
+        <h2 class="Heading">Pallax Effect Demo</h2>
       <div id="Move__Container" class="Move__Container">
         <div class="Move__Frame">
           <div id="Foreground2" class="Image__Container" data-js-image="Foreground2">
@@ -38,13 +40,14 @@
             <img class="Image" src="./misc/background.png" alt="background" />
           </div>
         </div>
-        <p class="Description">
+        <p class="Move__Description">
           The fore- and background of the image will move either based on mouse movement or, if available, based on the device orientation.           
           The mouse movement is tracked only when the mouse is over the image. With some math this movement is translated into a css transform applied inline to the elements.<br>
           <br>
           The device orientation is tracked constantly if it is available. Since the sensor already provide an angle the output only gets rounded and devided by a constraint to prevent glitches.
           The result is then applied as inline css transform.
         </p>
+      </div>
     </div>
   </body>
 </html>

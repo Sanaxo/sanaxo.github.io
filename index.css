@@ -26,6 +26,7 @@ body {
   margin: auto;
   background-image: url(./img/BG\ layer\ 1.png);
   background-attachment: fixed;
+  font-family: NovaSquare;
 }
 
 a {
@@ -247,6 +248,7 @@ p {
   position: absolute;
   height: 120%;
   width: 120%;
+  object-fit: contain;
 }
 
 [data-js-image='Foreground'] {
@@ -261,7 +263,7 @@ p {
 
 .Move__Container {
   width: 75%;
-  height: 60vh;
+  margin: auto;
 }
 
 .Move__Frame {
@@ -269,7 +271,7 @@ p {
   border: solid 5px black;
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 [data-js-image='Foreground2'] {
@@ -282,10 +284,25 @@ p {
   left: -50%;
 }
 
-.Move__Container .Description {
+.Move__Container .Move__Description {
   backdrop-filter: blur(25px);
   padding: 12px;
   margin-bottom: 12px;
+}
+
+.Main.Misc {
+  display: flex;
+  height: 100%;
+}
+
+.ParallaxDemo {
+  width: 100%;
+}
+
+.Heading {
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
 }
 
 @media screen and (max-width: 640px) {
@@ -329,14 +346,5 @@ p {
   }
   .swiper-container .swiper-button-prev {
     left: 0;
-  }
-}
-
-@media screen and (max-width: 760px) {
-  [data-js-image='Foreground2'] {
-    left: -150%;
-  }
-  .Image__Container .Image {
-    object-fit: cover;
   }
 }

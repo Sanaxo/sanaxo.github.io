@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //--------------------------------GyroDevices----------------------------------------
   const limit = 45;
 
-  let constraint = 40;
+  let constraint = 25;
 
   window.addEventListener('deviceorientation', function (event) {
     if (!event) return;
