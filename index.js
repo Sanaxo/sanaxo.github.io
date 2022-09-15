@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('deviceorientation', function (event) {
+      console.log('updateNow(): ', updateNow());
       if (updateNow()) {
         let position = Math.round(event.gamma);
         let position2 = Math.round(event.beta);
