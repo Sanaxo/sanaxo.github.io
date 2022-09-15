@@ -1,7 +1,7 @@
 /** @format */
 @font-face {
   font-family: Aerial;
-  src: url(AERIAL(BLACK ROCK SHOOTER FONT).TTF);
+  src: url(AERIAL.TTF);
 }
 @font-face {
   font-family: NovaSquare;
@@ -262,7 +262,6 @@ p {
 .Move__Container {
   width: 75%;
   height: 60vh;
-  margin: auto;
 }
 
 .Move__Frame {
@@ -281,6 +280,12 @@ p {
   z-index: 0;
   top: -50%;
   left: -50%;
+}
+
+.Move__Container .Description {
+  backdrop-filter: blur(25px);
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 640px) {
