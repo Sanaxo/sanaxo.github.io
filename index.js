@@ -143,47 +143,40 @@ document.addEventListener('DOMContentLoaded', () => {
   //--------------------------------MOVE-------------------------------------------------
 
   //--------------------------------GyroDevices----------------------------------------
-  let counter = 0;
-  const updateRate = 10;
   const limit = 45;
 
-  let constraint = -100;
-
-  function updateNow() {
-    return counter++ % updateRate === 0;
-  }
+  let constraint = 40;
 
   window.addEventListener('deviceorientation', function (event) {
     if (!event) return;
-    if (updateNow()) {
-      let position = Math.round(event.gamma);
-      let position2 = Math.round(event.beta);
 
-      if (Math.abs(position) > limit) {
-        if (position > limit) {
-          position = limit;
-        } else {
-          position = -limit;
-        }
+    let position = Math.round(event.gamma);
+    let position2 = Math.round(event.beta);
+
+    if (Math.abs(position) > limit) {
+      if (position > limit) {
+        position = limit;
+      } else {
+        position = -limit;
       }
-
-      if (Math.abs(position2) > limit) {
-        if (position2 > limit) {
-          position2 = limit;
-        } else {
-          position2 = -limit;
-        }
-      }
-
-      position = position / constraint;
-      position2 = position2 / constraint;
-
-      let style = 'perspective(500px)  rotateX(' + position2 + 'deg) rotateY(' + position + 'deg)';
-      let style2 = 'perspective(100px) rotateX(' + position2 + 'deg) rotateY(' + position + 'deg)';
-
-      moveForeground.style.transform = style;
-      moveBackground.style.transform = style2;
     }
+
+    if (Math.abs(position2) > limit) {
+      if (position2 > limit) {
+        position2 = limit;
+      } else {
+        position2 = -limit;
+      }
+    }
+
+    position = position / constraint;
+    position2 = position2 / constraint;
+
+    let style = 'perspective(500px)  rotateX(' + position2 + 'deg) rotateY(' + position + 'deg)';
+    let style2 = 'perspective(100px) rotateX(' + position2 + 'deg) rotateY(' + position + 'deg)';
+
+    moveForeground.style.transform = style;
+    moveBackground.style.transform = style2;
   });
 
   //--------------------------------MobileDevices----------------------------------------
