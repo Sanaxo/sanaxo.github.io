@@ -263,13 +263,12 @@ p {
 }
 
 .Move__Container {
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 
 .Move__Frame {
   overflow: hidden;
-  border: solid 5px black;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -346,8 +345,8 @@ p {
 }
 .Video__Container {
   position: relative;
-  width: 90%;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1320px;
   display: flex;
   justify-content: center;
   margin-inline: auto;
