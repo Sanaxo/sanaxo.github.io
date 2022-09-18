@@ -200,12 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //--------------------------------GyroDevices----------------------------------------
+});
+window.addEventListener('load', () => {
+  const mainElement = document.querySelector('[data-js-main]');
+  mainElement.classList.add('-Show');
 
   //-----------------------------------VidepPlayer-----------------------------------------------------
   /** @format */
 
   const VideoContainerElements = document.querySelectorAll('[data-js-video]');
-
   if (VideoContainerElements.length > 0) {
     VideoContainerElements.forEach((videoElement) => {
       const videoThumbail = videoElement.querySelector('.Video__Thumbnail');
@@ -375,8 +378,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      window.addEventListener('load', () => {
-        totalTimeElement.innerHTML = formatDuration(video.duration);
+      video.addEventListener('loadeddata', () => {
+        totalTimeElement.textContent = formatDuration(video.duration);
       });
 
       video.addEventListener('timeupdate', () => {
@@ -492,8 +495,4 @@ document.addEventListener('DOMContentLoaded', () => {
     e.style.setProperty('--max', e.max == '' ? '100' : e.max);
     e.addEventListener('input', () => e.style.setProperty('--value', e.value));
   }
-});
-window.addEventListener('load', () => {
-  const mainElement = document.querySelector('[data-js-main]');
-  mainElement.classList.add('-Show');
 });
