@@ -405,17 +405,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       volumeButton.addEventListener('click', toggleMute);
       video.addEventListener('volumechange', () => {
+        volumeSlider.style.setProperty('--value', video.volume);
+
         volumeSlider.value = video.volume;
         let volumeLevel;
         if (video.muted || video.volume === 0) {
           volumeSlider.value = 0;
           volumeLevel = 'muted';
+          volumeSlider.style.setProperty('--value', '0');
         } else if (video.volume >= 0.5) {
           volumeLevel = 'high';
         } else {
           volumeLevel = 'low';
         }
-
         videoElement.dataset.volume = volumeLevel;
       });
 
@@ -470,9 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
       function callback(mutationList, observer) {
         mutationList.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-            if (mutation.target.classList.contains('swiper-slide-active'))
-              console.log('mutation: ', mutation);
-            video.pause();
+            if (!mutation.target.classList.contains('swiper-slide-active')) {
+              video.pause();
+            }
           } else return;
         });
       }
@@ -483,6 +485,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else return;
 
   //-----------------------------------VidepPlayer-----------------------------------------------------
+
+  for (let e of document.querySelectorAll('input[type="range"].Volume__Slider')) {
+    e.style.setProperty('--value', e.value);
+    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+    e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+  }
 });
 window.addEventListener('load', () => {
   const mainElement = document.querySelector('[data-js-main]');
