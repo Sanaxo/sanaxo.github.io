@@ -15,7 +15,7 @@
 html,
 body {
   position: relative;
-  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -285,9 +285,10 @@ p {
 }
 
 .Move__Container .Move__Description {
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(15px);
   padding: 12px;
   margin-bottom: 12px;
+  margin-top: 1px;
 }
 
 .Main.Misc {
@@ -303,6 +304,298 @@ p {
   font-size: 2em;
   font-weight: 600;
   text-align: center;
+}
+
+.VideoPlayer__Demo {
+  width: 100%;
+}
+.Video__Description {
+  backdrop-filter: blur(5px);
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  margin-top: 1px;
+  user-select: none;
+}
+
+.Video__Description .Description__Heading {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.VideoSwiper .swiper-button-prev,
+.VideoSwiper .swiper-button-next {
+  width: 40px;
+}
+
+.VideoSwiper .swiper-button-prev {
+  left: 5px;
+}
+.VideoSwiper .swiper-button-next {
+  right: 5px;
+}
+
+.videoswiper-container {
+  position: relative;
+}
+
+.videoswiper-container .swiper-pagination {
+  --swiper-pagination-color: black;
+  position: unset;
+}
+.Video__Container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  background-color: rgb(0, 0, 0);
+}
+
+.Video__Container.-Theater,
+.Video__Container.-Fullscreen {
+  max-width: initial;
+  width: 100%;
+}
+
+.Video__Container.-Theater {
+  max-height: 90vh;
+}
+
+.Video__Container.-Fullscreen {
+  max-height: 100vh;
+}
+
+.Controls__Container {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  color: rgb(255, 255, 255);
+  transition: opacity 150ms ease-in-out;
+}
+
+.Icon__Captions {
+  display: none;
+}
+
+.Video__Container:hover .Controls__Container,
+.Video__Container:focus-within .Controls__Container,
+.Video__Container.-Paused .Controls__Container {
+  opacity: 1;
+}
+
+.Controls__Container .Controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.Controls__Container .Controls button {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  opacity: 0.85;
+  background: none;
+  border: none;
+  color: inherit;
+  font: 1.1rem;
+  cursor: pointer;
+  transform: opacity 150ms ease-in-out;
+}
+
+.Controls__Container::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  aspect-ratio: 6 / 1;
+  pointer-events: none;
+}
+
+.Controls__Container .Controls button:hover {
+  opacity: 1;
+}
+
+.Controls__TimelineContainer {
+  display: flex;
+  align-items: center;
+  height: 8px;
+  margin-inline: 0.5rem;
+  cursor: pointer;
+}
+
+.Timeline {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.Timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--preview-position) * 100%);
+  background-color: rgb(150, 150, 150);
+  display: none;
+}
+
+.Timeline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--progress-position) * 100%);
+  background-color: rgb(255, 0, 0);
+}
+
+.Timeline__ThumbIndicator {
+  --scale: 0;
+  position: absolute;
+  height: 200%;
+  top: -50%;
+  transform: translateX(-50%) scale(var(--scale));
+  left: calc(var(--progress-position) * 100%);
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  transition: transform 150ms ease-in-out;
+  aspect-ratio: 1 / 1;
+}
+
+.Timeline .Timeline__PreviewImage {
+  position: absolute;
+  height: 80px;
+  aspect-ratio: 16/9;
+  top: -1rem;
+  transform: translate(-50%, -100%);
+  left: calc(var(--preview-position) * 100%);
+  border-radius: 0.25rem;
+  border: 2px solid rgb(255, 255, 255);
+  display: none;
+}
+
+.Video__Container.-Scrubbing .Timeline__PreviewImage,
+.Controls__TimelineContainer:hover .Timeline__PreviewImage {
+  display: block;
+}
+
+.Video__Container.-Scrubbing .Timeline::before,
+.Controls__TimelineContainer:hover .Timeline::before {
+  display: block;
+}
+
+.Video__Container.-Scrubbing .Timeline__ThumbIndicator,
+.Controls__TimelineContainer:hover .Timeline__ThumbIndicator {
+  --scale: 1;
+}
+
+.Video__Container.-Scrubbing .Timeline,
+.Controls__TimelineContainer:hover .Timeline {
+  height: 100%;
+}
+
+.Video__Thumbnail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.Video__Container.-Scrubbing .Video__Thumbnail {
+  display: block;
+}
+
+.Video__Container.-Paused .Icon__Pause {
+  display: none;
+}
+
+.Video__Container:not(.-Paused) .Icon__Play {
+  display: none;
+}
+
+.Video__Container.-Theater .Icon__TheaterWide {
+  display: none;
+}
+
+.Video__Container:not(.-Theater) .Icon__TheaterTall {
+  display: none;
+}
+
+.Video__Container.-Fullscreen .Icon__FullscreenOpen {
+  display: none;
+}
+
+.Video__Container:not(.-Fullscreen) .Icon__FullscreenClose {
+  display: none;
+}
+
+.Volume__Container {
+  display: flex;
+  align-items: center;
+}
+
+.Volume__Slider {
+  width: 0;
+  transform-origin: left;
+  transform: scale(0);
+  transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.Volume__Container:hover .Volume__Slider,
+.Volume__Slider:focus-within {
+  width: 100px;
+  transform: scale(1);
+}
+
+.Icon__VolumeHigh,
+.Icon__VolumeLow,
+.Icon__VolumeMute {
+  display: none;
+}
+
+.Video__Container[data-volume='high'] .Icon__VolumeHigh {
+  display: block;
+}
+
+.Video__Container[data-volume='low'] .Icon__VolumeLow {
+  display: block;
+}
+
+.Video__Container[data-volume='muted'] .Icon__VolumeMute {
+  display: block;
+}
+
+.Duration__Container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-grow: 1;
+}
+
+.Video__Container.-Captions .Controls__ClosedCaptions {
+  border-bottom: 3px solid rgb(255, 0, 0);
+}
+
+.Controls__Container .Controls button.-WideButton {
+  width: 50px;
+}
+
+.Video__Container .Video__Video {
+  width: 100%;
 }
 
 @media screen and (max-width: 640px) {
@@ -346,5 +639,10 @@ p {
   }
   .swiper-container .swiper-button-prev {
     left: 0;
+  }
+
+  .VideoSwiper .swiper-button-prev,
+  .VideoSwiper .swiper-button-next {
+    display: none;
   }
 }
