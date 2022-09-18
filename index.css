@@ -714,4 +714,13 @@ input[type='range'].Volume__Slider:active::-webkit-slider-runnable-track {
   .VideoSwiper .swiper-button-next {
     display: none;
   }
+
+  .Duration__Container {
+    font-size: 10px;
+  }
+
+  .Controls__Container .Controls button {
+    height: 15px;
+    width: 15px;
+  }
 }
