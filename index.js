@@ -200,6 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //-----------------------------------VidepPlayer-----------------------------------------------------
     /** @format */
+    const swiperNavigationElement = document.querySelectorAll('[data-js-video-swiper-navigatinon]');
+
+    const hideSwiperNavigation = () => {
+      swiperNavigationElement.forEach((element) => {
+        if (element.classList.contains('-Hidden')) return;
+
+        element.classList.add('-Hidden');
+      });
+    };
+
+    const showSwiperNavigation = () => {
+      swiperNavigationElement.forEach((element) => {
+        if (!element.classList.contains('-Hidden')) return;
+
+        element.classList.remove('-Hidden');
+      });
+    };
 
     const VideoContainerElements = document.querySelectorAll('[data-js-video]');
     if (VideoContainerElements.length > 0) {
@@ -318,7 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
           );
 
           let videoName = video.getAttribute('src');
-          videoName = videoName.replace('assets/', '');
+          videoName = videoName.replace(
+            'https://unmemorable-commiss.000webhostapp.com/assets/',
+            ''
+          );
           videoName = videoName.replace('.mp4', '');
 
           const previewImageSource = `assets/preview/${videoName}-${previewImageNumber}.png`;
@@ -384,7 +404,10 @@ document.addEventListener('DOMContentLoaded', () => {
         function skip(duration) {
           video.currentTime += duration;
         }
-        totalTimeElement.innerText = formatDuration(video.duration);
+
+        video.addEventListener('loadeddata', () => {
+          totalTimeElement.innerText = formatDuration(video.duration);
+        });
 
         //Volume Controls
 
@@ -452,10 +475,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Play/Pause
         video.addEventListener('play', () => {
           videoElement.classList.remove('-Paused');
+          hideSwiperNavigation();
         });
 
         video.addEventListener('pause', () => {
           videoElement.classList.add('-Paused');
+          showSwiperNavigation();
         });
 
         video.addEventListener('click', togglePlay);

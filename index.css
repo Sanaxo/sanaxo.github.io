@@ -223,7 +223,7 @@ p {
 }
 
 .-Hidden {
-  display: none;
+  display: none !important;
 }
 
 .NavDrawer {
