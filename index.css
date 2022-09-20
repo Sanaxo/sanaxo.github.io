@@ -666,6 +666,10 @@ input[type='range'].Volume__Slider:active::-webkit-slider-runnable-track {
   backdrop-filter: blur(15px);
 }
 
+.-VisuallyHidden {
+  opacity: 0;
+}
+
 @media screen and (max-width: 640px) {
   .NavDrawer {
     display: block;
