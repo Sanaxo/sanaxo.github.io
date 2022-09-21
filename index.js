@@ -77,7 +77,6 @@ const gyroParallaxEffect = (event, moveForeground, moveBackground) => {
 };
 //-----------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded: ');
   const megaMenuElement = document.querySelector('[data-js-megamenu]');
 
   const overlayElement = document.querySelector('[data-js-overlay]');
@@ -171,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //-----------------------------------VidepPlayer-----------------------------------------------------
   /** @format */
 
-  console.log('Videplayer Start: ');
   const swiperNavigationElements = document.querySelectorAll('[data-js-video-swiper-navigatinon]');
 
   const hideSwiperNavigation = (swiperNavigationElementArray) => {
@@ -191,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const createVideoElement = (url, videoContainer) => {
-    console.log('createVideoElement: ', url, videoContainer);
     const videoElement = document.createElement('video');
     const videoSourceElement = document.createElement('source');
     videoElement.append(videoSourceElement);
@@ -203,8 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initializeVideo = (videoContainer) => {
-    console.log('initialize Video videoContainer: ', videoContainer);
-
     const videoThumbail = videoContainer.querySelector('.Video__Thumbnail');
     const timelineContainer = videoContainer.querySelector('.Controls__TimelineContainer');
     const timeline = timelineContainer.querySelector('.Timeline');
@@ -500,12 +495,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mutationObserver = new MutationObserver(callback);
     mutationObserver.observe(videoSlide, { attributes: true });
+
+    const videoPlayerDemoContainer = document.querySelector('[data-js-video-demo]');
+    if (videoPlayerDemoContainer.classList.contains('-Show')) return;
+    videoPlayerDemoContainer.classList.add('-Show');
   };
 
   const videoContainerElements = document.querySelectorAll('[data-js-video]');
   if (videoContainerElements.length > 0) {
     videoContainerElements.forEach((videoContainer) => {
-      console.log('videoContainer: ', videoContainer);
       const videoSourceURL = videoContainer.getAttribute('data-js-url');
 
       createVideoElement(videoSourceURL, videoContainer);
@@ -520,6 +518,41 @@ document.addEventListener('DOMContentLoaded', () => {
     e.style.setProperty('--max', e.max == '' ? '100' : e.max);
     e.addEventListener('input', () => e.style.setProperty('--value', e.value));
   }
+
+  const showElement = (element) => {
+    if (element.classList.contains('-Show')) return;
+
+    element.classList.add('-Show');
+  };
+
+  function checkImageLazyloading(mutationList, observer) {
+    mutationList.forEach(function (mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        if (mutation.target.classList.contains('lazyloaded')) {
+          const type = mutation.target.getAttribute('alt');
+          parallaxDemoImages[type] = 'loaded';
+        }
+        if (
+          parallaxDemoImages.foreground === 'loaded' &&
+          parallaxDemoImages.background === 'loaded'
+        ) {
+          const parallaxDemoContainer = document.querySelector('[data-js-parallex-demo]');
+          showElement(parallaxDemoContainer);
+        }
+      } else return;
+    });
+  }
+
+  let parallaxDemoImages = {
+    'foreground': '',
+    'background': '',
+  };
+
+  const parallaxDemoImageElements = document.querySelectorAll('[data-js-image] .Image');
+  parallaxDemoImageElements.forEach((element) => {
+    const parallaxDemomutationObserver = new MutationObserver(checkImageLazyloading);
+    parallaxDemomutationObserver.observe(element, { attributes: true });
+  });
 });
 
 window.addEventListener('load', () => {
