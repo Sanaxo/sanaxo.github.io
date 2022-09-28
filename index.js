@@ -25,7 +25,7 @@ if ('ontouchstart' in document.documentElement) {
     }, mouseStopDelay);
   });
 })(1000);
-
+console.log('isTouchDevice: ', isTouchDevice);
 const gyroParallaxEffect = (event, moveForeground, moveBackground) => {
   if (!event) return;
 
