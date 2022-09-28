@@ -691,8 +691,7 @@ p {
 
   .VideoSwiper .swiper-button-prev,
   .VideoSwiper .swiper-button-next {
-    bottom: 40px;
-    width: 16px;
+    display: none;
   }
 
   .Duration__Container {
