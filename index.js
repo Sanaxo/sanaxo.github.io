@@ -370,7 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
       const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.jpg`;
-      console.log('previewImageSource: ', previewImageSource);
       timelinePreviewImage.src = previewImageSource;
       timelineContainer.style.setProperty('--preview-position', timeSliderValue);
 
