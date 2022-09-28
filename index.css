@@ -460,7 +460,7 @@ p {
   top: 0;
   bottom: 0;
   right: calc(100% - var(--preview-position) * 100%);
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(255, 255, 255);
   display: none;
   z-index: 0;
 }
