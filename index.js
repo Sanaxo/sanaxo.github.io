@@ -316,6 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let videoWasPaused = false;
 
     const toggleMouseScrubbing = (event) => {
+      videoContainer.classList.toggle('-Scrubbing');
+
       notScrubbing = false;
 
       videoIsScrubbing = (event.buttons & 1) === 1;
@@ -324,13 +326,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const toggleTouchScrubbing = (event) => {
+      videoContainer.classList.toggle('-Scrubbing');
+
       if (event.type === 'touchstart') {
         notScrubbing = false;
+        console.log('notScrubbing: ', notScrubbing);
         videoIsScrubbing = true;
+        console.log('videoIsScrubbing: ', videoIsScrubbing);
         timelineScrubbing();
       }
       if (event.type === 'touchend') {
         videoIsScrubbing = false;
+        console.log('videoIsScrubbing: ', videoIsScrubbing);
 
         timelineScrubbing();
       }
@@ -359,14 +366,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const timeSliderValue = timeline.getAttribute('data-value-value');
 
       video.currentTime = timeSliderValue * video.duration;
-
-      handleTimelineUpate();
     };
 
     const handleTimelineUpate = () => {
       const timeSliderValue = timeline.getAttribute('data-value-value');
 
       const previewImageNumber = Math.max(1, Math.floor((timeSliderValue * video.duration) / 1));
+      console.log('previewImageNumber: ', previewImageNumber);
 
       const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
       const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.jpg`;
@@ -380,8 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const timelineScrubbing = () => {
-      videoContainer.classList.toggle('-Scrubbing');
-
       if (videoIsScrubbing) {
         videoWasPaused = video.paused;
         video.pause();
@@ -409,6 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (videoIsScrubbing) toggleMouseScrubbing(event);
       });
     }
+
+    timeline.addEventListener('customSliderInput', handleTimelineUpate);
 
     video.addEventListener('timeupdate', () => {
       if (notScrubbing) {
