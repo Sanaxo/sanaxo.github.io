@@ -444,48 +444,47 @@ p {
   cursor: pointer;
 }
 
-.Timeline {
-  position: relative;
+.TimeLineSlider__Container {
   width: 100%;
   height: 3px;
   background-color: rgba(100, 100, 100, 0.5);
 }
 
-.Timeline::before {
+.TimeLineSlider {
+}
+
+.TimeLineSlider::after {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   right: calc(100% - var(--preview-position) * 100%);
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(150, 150, 150);
   display: none;
+  z-index: 0;
 }
 
-.Timeline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: calc(100% - var(--progress-position) * 100%);
-  background-color: var(--slider-color);
+.TimeLineSlider__Progress {
+  background-color: rgb(255, 0, 0);
+  z-index: 1;
 }
 
-.Timeline__ThumbIndicator {
+.TimeLineSlider__RunnableTrack {
+  background-color: rgba(249, 80, 255, 0);
+}
+
+.TimeLineSlider__Thumb {
   --scale: 0;
-  position: absolute;
   height: 200%;
-  top: -50%;
-  transform: translateX(-50%) scale(var(--scale));
-  left: calc(var(--progress-position) * 100%);
-  background-color: var(--slider-color);
   border-radius: 50%;
+  background-color: rgb(255, 0, 0);
   transition: transform 150ms ease-in-out;
   aspect-ratio: 1 / 1;
+  transform: translateX(-50%) scale(var(--scale));
 }
 
-.Timeline .Timeline__PreviewImage {
+.TimeLineSlider .TimeLineSlider__PreviewImage {
   position: absolute;
   height: 80px;
   aspect-ratio: 16/9;
@@ -497,23 +496,23 @@ p {
   display: none;
 }
 
-.Video__Container.-Scrubbing .Timeline__PreviewImage,
-.Controls__TimelineContainer:hover .Timeline__PreviewImage {
+.Video__Container.-Scrubbing .TimeLineSlider__PreviewImage,
+.Controls__TimelineContainer:hover .TimeLineSlider__PreviewImage {
   display: block;
 }
 
-.Video__Container.-Scrubbing .Timeline::before,
-.Controls__TimelineContainer:hover .Timeline::before {
+.Video__Container.-Scrubbing .TimeLineSlider::after,
+.Controls__TimelineContainer:hover .TimeLineSlider::after {
   display: block;
 }
 
-.Video__Container.-Scrubbing .Timeline__ThumbIndicator,
-.Controls__TimelineContainer:hover .Timeline__ThumbIndicator {
+.Video__Container.-Scrubbing .TimeLineSlider__Thumb,
+.Controls__TimelineContainer:hover .TimeLineSlider__Thumb {
   --scale: 1;
 }
 
-.Video__Container.-Scrubbing .Timeline,
-.Controls__TimelineContainer:hover .Timeline {
+.Video__Container.-Scrubbing .TimeLineSlider__Container,
+.Controls__TimelineContainer:hover .TimeLineSlider__Container {
   height: 100%;
 }
 
@@ -561,82 +560,45 @@ p {
   align-items: center;
 }
 
-.Volume__Slider {
-  -webkit-appearance: none;
-  border-radius: 1em;
-
+.VolumeSlider__Container {
   width: 0;
+  height: 8px;
   transform-origin: left;
   transform: scale(0);
   transition: width 150ms ease-in-out, transform 150ms ease-in-out;
-  --range: calc(var(--max) - var(--min));
-  --ratio: calc((var(--value) - var(--min)) / var(--range));
-  --sx: calc(0.5 * 20px + var(--ratio) * (100% - 20px));
+  margin: 0 8px 0 2px;
 }
 
-input[type='range'].Volume__Slider:focus {
-  outline: none;
+.VolumeSlider {
 }
 
-/*webkit*/
-input[type='range'].Volume__Slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 1em;
-  height: 1em;
-  border-radius: 1em;
-  background: var(--slider-color);
-  border: none;
-  box-shadow: 0 0 2px black;
-  margin-top: calc(max((1em - 1px - 1px) * 0.5, 0px) - 1.5em * 0.5);
+.VolumeSlider__Progress {
+  background-color: rgb(255, 0, 0);
+  z-index: 1;
+  border-radius: 5px;
 }
 
-input[type='range'].Volume__Slider::-webkit-slider-runnable-track {
-  height: 0.5em;
-  border: 1px solid #b2b2b2;
-  border-radius: 0.5em;
-  background: #efefef;
-  box-shadow: none;
+.VolumeSlider__RunnableTrack {
+  background-color: rgba(249, 80, 255, 0);
+  border-radius: 5px;
 }
 
-input[type='range'].Volume__Slider::-webkit-slider-thumb:hover {
-  background: var(--slider-color);
+.VolumeSlider__Thumb {
+  --scale: 0;
+  height: 200%;
+  border-radius: 50%;
+  background-color: rgb(255, 0, 0);
+  border: 1px solid rgb(146, 0, 0);
+  transition: transform 150ms ease-in-out;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%) scale(var(--scale));
 }
 
-input[type='range'].Volume__Slider:hover::-webkit-slider-runnable-track {
-  background: #e5e5e5;
-  border-color: #9a9a9a;
-}
-
-input[type='range'].Volume__Slider::-webkit-slider-thumb:active {
-  background: var(--slider-color);
-}
-
-input[type='range'].Volume__Slider:active::-webkit-slider-runnable-track {
-  background: #f5f5f5;
-  border-color: #c1c1c1;
-}
-
-input[type='range'].Volume__Slider::-webkit-slider-runnable-track {
-  background: linear-gradient(var(--slider-color), var(--slider-color)) 0 / var(--sx) 100% no-repeat,
-    #efefef;
-}
-
-input[type='range'].Volume__Slider:hover::-webkit-slider-runnable-track {
-  background: linear-gradient(var(--slider-color), var(--slider-color)) 0 / var(--sx) 100% no-repeat,
-    #e5e5e5;
-}
-
-input[type='range'].Volume__Slider:active::-webkit-slider-runnable-track {
-  background: linear-gradient(var(--slider-color), var(--slider-color)) 0 / var(--sx) 100% no-repeat,
-    #f5f5f5;
-}
-
-.Volume__Container:hover .Volume__Slider,
-.Volume__Slider:focus-within {
+.Volume__Container:hover .VolumeSlider__Container,
+.VolumeSlider__Container:focus-within {
   width: 100px;
   transform: scale(1);
 }
-
 .Icon__VolumeHigh,
 .Icon__VolumeLow,
 .Icon__VolumeMute {
@@ -739,4 +701,57 @@ input[type='range'].Volume__Slider:active::-webkit-slider-runnable-track {
     height: 15px;
     width: 15px;
   }
+
+  .Volume__Container:hover .Volume__Slider,
+  .Volume__Slider:focus-within {
+    width: 0;
+    transform: scale(0);
+  }
 }
+
+/*------------------------------------------------------------------------*/
+[data-js-slider] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+[data-js-slider]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0.5em;
+  transform: translateY(-50%);
+}
+
+[data-js-slider-progress] {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: calc(100% - var(--seek-position) * 100%);
+  bottom: 0;
+  left: 0;
+}
+
+[data-js-slider-runnable-track] {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(var(--seek-position, 0) * 100%);
+  bottom: 0;
+  right: 0;
+}
+
+[data-js-slider-thumb] {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: calc(var(--seek-position) * 100%);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/*------------------------------------------------------------------------*/

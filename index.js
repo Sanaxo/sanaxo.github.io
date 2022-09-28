@@ -1,4 +1,12 @@
 /** @format */
+let isTouchDevice;
+
+if ('ontouchstart' in document.documentElement) {
+  isTouchDevice = true;
+} else {
+  isTouchDevice = false;
+}
+
 // mousestop event which triggers if mouse movement stops
 (function (mouseStopDelay) {
   var timeout;
@@ -170,24 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //-----------------------------------VidepPlayer-----------------------------------------------------
   /** @format */
 
-  const swiperNavigationElements = document.querySelectorAll('[data-js-video-swiper-navigatinon]');
-
-  const hideSwiperNavigation = (swiperNavigationElementArray) => {
-    swiperNavigationElementArray.forEach((element) => {
-      if (element.classList.contains('-Hidden')) return;
-
-      element.classList.add('-Hidden');
-    });
-  };
-
-  const showSwiperNavigation = (swiperNavigationElementArray) => {
-    swiperNavigationElementArray.forEach((element) => {
-      if (!element.classList.contains('-Hidden')) return;
-
-      element.classList.remove('-Hidden');
-    });
-  };
-
   const createVideoElement = (url, videoContainer) => {
     const videoElement = document.createElement('video');
     const videoSourceElement = document.createElement('source');
@@ -202,12 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const initializeVideo = (videoContainer) => {
     const videoThumbail = videoContainer.querySelector('.Video__Thumbnail');
     const timelineContainer = videoContainer.querySelector('.Controls__TimelineContainer');
-    const timeline = timelineContainer.querySelector('.Timeline');
-    const timelinePreviewImage = timeline.querySelector('.Timeline__PreviewImage');
-    const timelineThumbIndicator = timeline.querySelector('.Timeline__ThumbIndicator');
+    const timeline = timelineContainer.querySelector('.TimeLineSlider');
+    const timelinePreviewImage = timeline.querySelector('.TimeLineSlider__PreviewImage');
+    const timelineThumbIndicator = timeline.querySelector('.TimeLineSlider__ThumbIndicator');
     const playPauseButton = videoContainer.querySelector('.Controls__PlayPause');
     const volumeButton = videoContainer.querySelector('.Volume__Icon');
-    const volumeSlider = videoContainer.querySelector('.Volume__Slider');
+    const volumeSlider = videoContainer.querySelector('.VolumeSlider');
     const durationContainer = videoContainer.querySelector('.Duration__Container');
     const currentTimeElement = videoContainer.querySelector('.Duration__CurrentTime');
     const totalTimeElement = videoContainer.querySelector('.Duration__TotalTime');
@@ -217,13 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const theaterButton = videoContainer.querySelector('.Controls__Theater');
     const fullscreenButton = videoContainer.querySelector('.Controls__Fullscreen');
     const video = videoContainer.querySelector('.Video__Video');
-    const controlsContainer = videoContainer.querySelector('.Controls__Container');
+
+    playPauseButton.addEventListener('click', togglePlay);
 
     function togglePlay() {
       video.paused ? video.play() : video.pause();
     }
-
-    playPauseButton.addEventListener('click', togglePlay);
 
     // keyboard events
     document.addEventListener('keydown', (e) => {
@@ -263,69 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Timeline
-
-    timelineContainer.addEventListener('mousemove', handleTimelineUpdate);
-    timelineContainer.addEventListener('mousedown', toggleScrubbing);
-    document.addEventListener('mouseup', (event) => {
-      if (videoIsScrubbing) toggleScrubbing(event);
-    });
-    document.addEventListener('mousemove', (event) => {
-      if (videoIsScrubbing) handleTimelineUpdate(event);
-    });
-
-    let videoIsScrubbing = false;
-    let videoWasPaused = false;
-
-    function toggleScrubbing(event) {
-      const timelineContainerRectangle = timelineContainer.getBoundingClientRect();
-      const horizontalCursorPosition =
-        Math.min(
-          Math.max(0, event.x - timelineContainerRectangle.x),
-          timelineContainerRectangle.width
-        ) / timelineContainerRectangle.width;
-      videoIsScrubbing = (event.buttons & 1) === 1;
-      videoContainer.classList.toggle('-Scrubbing');
-
-      if (videoIsScrubbing) {
-        videoWasPaused = video.paused;
-        video.pause();
-      } else {
-        video.currentTime = horizontalCursorPosition * video.duration;
-
-        if (!videoWasPaused) {
-          video.play();
-        }
-      }
-
-      handleTimelineUpdate(event);
-    }
-
-    function handleTimelineUpdate(event) {
-      const timelineContainerRectangle = timelineContainer.getBoundingClientRect();
-      const horizontalCursorPosition =
-        Math.min(
-          Math.max(0, event.x - timelineContainerRectangle.x),
-          timelineContainerRectangle.width
-        ) / timelineContainerRectangle.width;
-
-      const previewImageNumber = Math.max(
-        1,
-        Math.floor((horizontalCursorPosition * video.duration) / 1)
-      );
-
-      const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
-      const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.png`;
-      timelinePreviewImage.src = previewImageSource;
-      timelineContainer.style.setProperty('--preview-position', horizontalCursorPosition);
-
-      if (videoIsScrubbing) {
-        event.preventDefault();
-        videoThumbail.src = previewImageSource;
-        timelineContainer.style.setProperty('--progress-position', horizontalCursorPosition);
-      }
-    }
-
     // Playback Speed
 
     playbackSpeedButton.addEventListener('click', changePlaybackSpeed);
@@ -337,19 +263,19 @@ document.addEventListener('DOMContentLoaded', () => {
       playbackSpeedButton.textContent = `${newPlaybackSpeed}x`;
     }
 
-    /*
     // Captions
+    /*
     const captions = video.textTracks[0];
     captions.mode = 'hidden';
-    
+
     captionsButton.addEventListener('click', toggleCaptions);
-    
+
     function toggleCaptions() {
       const areCaptionsHidden = captions.mode === 'hidden';
       captions.mode = areCaptionsHidden ? 'showing' : 'hidden';
       videoContainer.classList.toggle('-Captions', areCaptionsHidden);
     }
-    */
+*/
 
     // Duration
     video.addEventListener('loadeddata', () => {
@@ -383,22 +309,131 @@ document.addEventListener('DOMContentLoaded', () => {
       video.currentTime += duration;
     }
 
+    //Timeline
+
+    let videoIsScrubbing = false;
+    let notScrubbing = true;
+    let videoWasPaused = false;
+
+    const toggleMouseScrubbing = (event) => {
+      notScrubbing = false;
+
+      videoIsScrubbing = (event.buttons & 1) === 1;
+
+      timelineScrubbing();
+    };
+
+    const toggleTouchScrubbing = (event) => {
+      if (event.type === 'touchstart') {
+        notScrubbing = false;
+        videoIsScrubbing = true;
+        timelineScrubbing();
+      }
+      if (event.type === 'touchend') {
+        videoIsScrubbing = false;
+
+        timelineScrubbing();
+      }
+    };
+
+    const hoverPreview = (event) => {
+      const timelineContainerRectangle = timelineContainer.getBoundingClientRect();
+      const horizontalCursorPosition =
+        Math.min(
+          Math.max(0, event.x - timelineContainerRectangle.x),
+          timelineContainerRectangle.width
+        ) / timelineContainerRectangle.width;
+
+      const previewImageNumber = Math.max(
+        1,
+        Math.floor((horizontalCursorPosition * video.duration) / 1)
+      );
+
+      const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
+      const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.png`;
+      timelinePreviewImage.src = previewImageSource;
+      timelineContainer.style.setProperty('--preview-position', horizontalCursorPosition);
+    };
+
+    const updateVideoCurrentTime = () => {
+      const timeSliderValue = timeline.getAttribute('data-value-value');
+
+      video.currentTime = timeSliderValue * video.duration;
+
+      handleTimelineUpate();
+    };
+
+    const handleTimelineUpate = () => {
+      const timeSliderValue = timeline.getAttribute('data-value-value');
+
+      const previewImageNumber = Math.max(1, Math.floor((timeSliderValue * video.duration) / 1));
+
+      const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
+      const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.png`;
+      timelinePreviewImage.src = previewImageSource;
+      timelineContainer.style.setProperty('--preview-position', timeSliderValue);
+
+      if (videoIsScrubbing) {
+        videoThumbail.src = previewImageSource;
+        timelineContainer.style.setProperty('--progress-position', timeSliderValue);
+      }
+    };
+
+    const timelineScrubbing = () => {
+      videoContainer.classList.toggle('-Scrubbing');
+
+      if (videoIsScrubbing) {
+        videoWasPaused = video.paused;
+        video.pause();
+      } else {
+        updateVideoCurrentTime();
+
+        if (!videoWasPaused) {
+          video.play();
+        }
+
+        notScrubbing = true;
+      }
+    };
+
+    if (isTouchDevice) {
+      timeline.addEventListener('touchstart', toggleTouchScrubbing);
+      document.addEventListener('touchmove', () => {
+        if (videoIsScrubbing) timelineScrubbing();
+      });
+      timeline.addEventListener('touchend', toggleTouchScrubbing);
+    } else {
+      timeline.addEventListener('mousedown', toggleMouseScrubbing);
+      timeline.addEventListener('mousemove', hoverPreview);
+      document.addEventListener('mouseup', (event) => {
+        if (videoIsScrubbing) toggleMouseScrubbing(event);
+      });
+    }
+
+    video.addEventListener('timeupdate', () => {
+      if (notScrubbing) {
+        const videoProgress = video.currentTime / video.duration;
+        timeline.setAttribute('data-value-value', videoProgress);
+      }
+    });
+
     //Volume Controls
 
     function toggleMute() {
       video.muted = !video.muted;
     }
 
-    volumeSlider.addEventListener('input', (e) => {
-      video.volume = e.target.value;
-      video.muted = e.target.value === 0;
+    volumeSlider.addEventListener('customSliderInput', (event) => {
+      if (video.muted) return;
+      video.volume = event.detail.value;
+      video.muted = event.detail.value === 0;
     });
-    volumeButton.addEventListener('click', toggleMute);
-    video.addEventListener('volumechange', () => {
-      volumeSlider.value = video.volume;
+
+    video.addEventListener('volumechange', (event) => {
+      volumeSlider.setAttribute('data-value-value', video.volume);
       let volumeLevel;
       if (video.muted || video.volume === 0) {
-        volumeSlider.value = 0;
+        volumeSlider.setAttribute('data-value-value', 0);
         volumeLevel = 'muted';
       } else if (video.volume >= 0.5) {
         volumeLevel = 'high';
@@ -408,6 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       videoContainer.dataset.volume = volumeLevel;
     });
+
+    volumeButton.addEventListener('click', toggleMute);
 
     //ViewModes
 
@@ -444,39 +481,13 @@ document.addEventListener('DOMContentLoaded', () => {
       videoContainer.classList.remove('-MiniPlayer');
     });
 
-    const hideControls = () => {
-      if (video.paused) {
-        return;
-      }
-      controlsContainer.classList.add('-VisuallyHidden');
-      requestAnimationFrame(() => {
-        controlsContainer.classList.add('-Hidden');
-      });
-    };
-
-    const showControls = () => {
-      if (controlsContainer.classList.contains('-Hidden')) {
-        controlsContainer.classList.remove('-Hidden');
-
-        requestAnimationFrame(() => {
-          controlsContainer.classList.remove('-VisuallyHidden');
-        });
-      }
-    };
-
     // Play/Pause
     video.addEventListener('play', () => {
       videoContainer.classList.remove('-Paused');
-      hideSwiperNavigation(swiperNavigationElements);
-      document.addEventListener('mousestop', hideControls);
-      document.addEventListener('mousemove', showControls);
     });
 
     video.addEventListener('pause', () => {
       videoContainer.classList.add('-Paused');
-      showSwiperNavigation(swiperNavigationElements);
-      document.removeEventListener('mousestop', hideControls);
-      document.removeEventListener('mousemove', showControls);
     });
 
     video.addEventListener('click', togglePlay);
@@ -494,7 +505,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const mutationObserver = new MutationObserver(callback);
-    mutationObserver.observe(videoSlide, { attributes: true });
+    mutationObserver.observe(videoSlide, {
+      attributes: true,
+    });
 
     const videoPlayerDemoContainer = document.querySelector('[data-js-video-demo]');
     if (videoPlayerDemoContainer.classList.contains('-Show')) return;
@@ -511,13 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initializeVideo(videoContainer);
     });
   } else return;
-
-  for (let e of document.querySelectorAll('input[type="range"].Volume__Slider')) {
-    e.style.setProperty('--value', e.value);
-    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
-    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
-    e.addEventListener('input', () => e.style.setProperty('--value', e.value));
-  }
+  //-----------------------------------VidepPlayer-----------------------------------------------------
 
   const showElement = (element) => {
     if (element.classList.contains('-Show')) return;
@@ -553,6 +560,99 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxDemomutationObserver = new MutationObserver(checkImageLazyloading);
     parallaxDemomutationObserver.observe(element, { attributes: true });
   });
+
+  //---------------------SLIDER-------------------------
+  const sliderContainerElements = document.querySelectorAll('[data-js-slider-container]');
+
+  sliderContainerElements.forEach((sliderContainerElement) => {
+    const sliderElement = sliderContainerElement.querySelector('[data-js-slider]');
+    const sliderThumb = sliderContainerElement.querySelector('[data-js-slider-thumb]');
+
+    let sliderInUse = false;
+
+    const sliderMouseMovment = (event) => {
+      event.preventDefault();
+      const sliderElementRectangle = sliderElement.getBoundingClientRect();
+      const horizontalCursorPosition =
+        Math.min(Math.max(0, event.x - sliderElementRectangle.x), sliderElementRectangle.width) /
+        sliderElementRectangle.width;
+
+      sliderElement.setAttribute('data-value-value', horizontalCursorPosition);
+
+      sliderElement.style.setProperty('--seek-position', horizontalCursorPosition);
+    };
+
+    const sliderTouchMovement = (event) => {
+      event.preventDefault();
+
+      let touchPositionX = 0;
+      let touchPositionY = 0;
+
+      if (event.touches && event.touches[0]) {
+        touchPositionX = event.touches[0].clientX;
+        touchPositionY = event.touches[0].clientY;
+      } else if (event.originalEvent && event.originalEvent.changedTouches[0]) {
+        touchPositionX = event.originalEvent.changedTouches[0].clientX;
+        touchPositionY = event.originalEvent.changedTouches[0].clientY;
+      } else if (event.clientX && event.clientY) {
+        touchPositionX = event.clientX;
+        touchPositionY = event.clientY;
+      }
+
+      const sliderElementRectangle = sliderElement.getBoundingClientRect();
+      const horizontalCursorPosition =
+        Math.min(
+          Math.max(0, touchPositionX - sliderElementRectangle.x),
+          sliderElementRectangle.width
+        ) / sliderElementRectangle.width;
+
+      sliderElement.setAttribute('data-value-value', horizontalCursorPosition);
+      sliderElement.style.setProperty('--seek-position', horizontalCursorPosition);
+    };
+
+    const initialzeMouseMovement = (event) => {
+      event.preventDefault();
+
+      sliderInUse = (event.buttons & 1) === 1;
+
+      sliderMouseMovment(event);
+    };
+
+    if (isTouchDevice) {
+      ['touchstart', 'touchmove'].forEach((event) => {
+        sliderContainerElement.addEventListener(event, sliderTouchMovement);
+      });
+    } else {
+      sliderContainerElement.addEventListener('mousemove', (event) => {
+        if (sliderInUse) sliderMouseMovment(event);
+      });
+      sliderContainerElement.addEventListener('mousedown', initialzeMouseMovement);
+      document.addEventListener('mouseup', (event) => {
+        if (sliderInUse) initialzeMouseMovement(event);
+      });
+      document.addEventListener('mousemove', (event) => {
+        if (sliderInUse) sliderMouseMovment(event);
+      });
+    }
+
+    const checkSliderValue = (mutationList, observer) => {
+      mutationList.forEach(function (mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-value-value') {
+          const sliderValue = sliderElement.getAttribute('data-value-value');
+          const sliderInputEvent = new CustomEvent('customSliderInput', {
+            detail: { value: sliderValue },
+          });
+          sliderElement.style.setProperty('--seek-position', sliderValue);
+          mutation.target.dispatchEvent(sliderInputEvent);
+        } else return;
+      });
+    };
+
+    const sliderValueObserver = new MutationObserver(checkSliderValue);
+    sliderValueObserver.observe(sliderElement, { attributes: true });
+  });
+
+  //---------------------SLIDER-------------------------
 });
 
 window.addEventListener('load', () => {
