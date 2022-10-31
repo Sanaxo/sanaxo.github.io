@@ -1,1 +1,0 @@
-ffmpeg -i S:\Documents\GitHub\sanaxo.github.io\assets\Destiny2Clip1.mp4 -r 1 -s 854x480 S:\Documents\GitHub\sanaxo.github.io\assets\preview\Destiny2Clip1.jpg

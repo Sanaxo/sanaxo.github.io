@@ -1,0 +1,81 @@
+@import './breakpoints.scss';
+
+:root {
+  --max-width: 1440px;
+}
+
+@font-face {
+  font-family: Aerial;
+  src: url(../../assets/fonts/AERIAL.TTF);
+}
+@font-face {
+  font-family: NovaSquare;
+  src: url(../../assets/fonts/novasquare.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  background-image: url(../../assets/images/default/BG\ layer\ 1.png);
+  background-attachment: fixed;
+  font-family: NovaSquare;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Aerial;
+  font-weight: 400;
+}
+
+a {
+  appearance: none;
+  color: unset;
+  text-decoration: unset;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+li,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.Main {
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.-Show {
+  opacity: 1 !important;
+}
+
+.-Hidden {
+  display: none !important;
+}

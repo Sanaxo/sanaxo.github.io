@@ -1,0 +1,60 @@
+<div class='Gallery__Wrapper'>
+  <div class='Gallery'>
+    <div class='swiper-wrapper'>
+      {{#each images}}
+        <div class='swiper-slide'>
+          <div class='Slide__Content'>
+            <img
+              class='Image lazyload'
+              data-sizes='auto'
+              data-srcset='{{img}} 300w, {{img}} 600w, {{img}} 900w, {{img}} 1200w'
+              alt='{{text}}'
+            />
+            <p class='Description'>{{text}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div class='swiper-button-next'>
+      <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+        <defs></defs>
+        <path
+          id='shape0'
+          transform='translate(5.62500015892703, 0)'
+          fill='#000000'
+          fill-rule='evenodd'
+          stroke='#000000'
+          stroke-width='2.88'
+          stroke-linecap='square'
+          stroke-linejoin='bevel'
+          d='M11.52 0L23.13 16.56L11.655 34.65L0 34.56L11.655 16.605L0.09 0L11.52 0'
+        ></path>
+      </svg>
+    </div>
+    <div class='swiper-button-prev'>
+      <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+        <defs></defs>
+        <path
+          id='shape0'
+          transform='translate(5.7275649914128, 0)'
+          fill='#000000'
+          fill-rule='evenodd'
+          stroke='#000000'
+          stroke-width='2.88'
+          stroke-linecap='square'
+          stroke-linejoin='bevel'
+          d='M23.0694 0L11.4869 0L0 16.5781L11.3915 34.56L23.0694 34.56L11.5524 16.419L23.0694 0'
+        ></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<div class='GalleryThumbnails'>
+  <div class='swiper-wrapper'>
+    {{#each images}}
+      <div class='swiper-slide'>
+        <img class='Image lazyload' data-src='{{img}}' alt='{{text}}' />
+      </div>
+    {{/each}}
+  </div>
+</div>

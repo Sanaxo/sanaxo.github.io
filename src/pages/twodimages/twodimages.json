@@ -1,0 +1,30 @@
+{
+  "title": "2D Images",
+  "images": [
+    {
+      "name": "TestSketch",
+      "img": "/src/assets/images/twodimages/26.03.21-1252.png",
+      "text": "Using a 3D model as reference"
+    },
+    {
+      "name": "Inktober",
+      "img": "/src/assets/images/twodimages/Inktober.png",
+      "text": "A halloween image drawn during Oktober"
+    },
+    {
+      "name": "Git Flame",
+      "img": "/src/assets/images/twodimages/git-flame-frame.png",
+      "text": "This was made for a friend who is a front-end developer"
+    },
+    {
+      "name": "Cool Waters",
+      "img": "/src/assets/images/twodimages/bob-ross-s4E9-cool-waters.png",
+      "text": "This image was mode following along an episode of Bob Ross' show The Joy of Painting, using digital tools rather than analog ones"
+    },
+    {
+      "name": "Towel",
+      "img": "/src/assets/images/twodimages/new34-slack.png",
+      "text": "An image based on an anolog sketch I made"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.Move__Frame .Image__Container .Image {
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  object-fit: contain;
+}
+
+[data-js-image='Foreground'] {
+  z-index: 1;
+  left: -50%;
+}
+[data-js-image='Background'] {
+  z-index: 0;
+  top: -50%;
+  left: -50%;
+}
+
+.Move__Container {
+  width: 100%;
+  margin: auto;
+}
+
+.Move__Frame {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.Image__Container[data-js-image='Foreground2'] {
+  z-index: 1;
+  left: -50%;
+}
+.Image__Container[data-js-image='Background2'] {
+  z-index: 0;
+  top: -50%;
+  left: -10%;
+}
+
+.Move__Container .Move__Description {
+  backdrop-filter: blur(15px);
+  padding: 12px;
+  margin-bottom: 12px;
+  margin-top: 1px;
+}
+
+.Image__Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{javascript.title}}</title>
+</head>
+<body>
+  {{> megamenu/megamenu}}
+<div class="Site__Container">
+  <div class='ParallaxDemo' data-js-parallex-demo>
+      <h2 class='Heading'>Parallax Effect Demo</h2>
+  {{> parallax-effect/parallax-effect imagePairs=javascript.parallaxImages}}
+    <p class='Move__Description'>
+    The fore- and background of the image will move either based on mouse movement or, if available,
+    based on the device orientation. The mouse movement is tracked only when the mouse is over the
+    image. With some math this movement is translated into a css transform applied inline to the
+    elements.<br />
+    <br />
+    The device orientation is tracked constantly if it is available. Since the sensor already
+    provide an angle the output only gets rounded and devided by a constraint to prevent glitches.
+    The result is then applied as inline css transform.
+  </p>
+  </div>
+  <div class='VideoPlayer__Demo' data-js-video-demo>
+    <h2 class='Heading'>Video Player</h2>
+    {{> swiper-with-video-player/swiper-with-video-player videos=javascript.videos}}
+    <p class='VideoPlayer__Description'>
+      A replica of the Youtube Video Player featuring some of my gaming highlights. Everything about
+      this player is customizable even the input sliders.
+      <br />
+      The main thread in its inner workings is the video element. It dictates the state of every UI
+      element. Every element basiclly listens to what the video is doing and adjusts accordingly. This
+      makes it very easy to always reflect an accurate state of the video progress, volume, playback
+      speed, etc. without unnecessary complicated code.
+    </p>
+  </div>
+</div>
+  <script defer src='javascript.js'></script>
+</body>
+</html>

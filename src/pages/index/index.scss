@@ -1,0 +1,84 @@
+@import '../../defaults/styles/breakpoints.scss';
+@import '../../defaults/styles/clickable.scss';
+@import '../../defaults/styles/defaults.scss';
+
+.ContentList {
+  height: fit-content;
+  width: 80%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto;
+
+  @include mobile {
+    height: 100%;
+    justify-content: space-evenly;
+    margin: 8px auto;
+  }
+}
+
+.ListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+
+  &:hover &__Text {
+    --after-right: 0;
+  }
+
+  &__Container {
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__Container:nth-child(even) & {
+    @include tablet-and-up {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__Text {
+    width: 50%;
+    text-align: center;
+    font-size: 200%;
+    width: fit-content;
+    margin: auto;
+
+    @include clickable;
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    &:hover::after {
+      right: var(--after-right);
+    }
+
+    &:after {
+      bottom: 0;
+    }
+  }
+
+  &__Image {
+    width: 50%;
+
+    .Image {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &:hover .ListItem__Image {
+    filter: brightness(1.1);
+  }
+}

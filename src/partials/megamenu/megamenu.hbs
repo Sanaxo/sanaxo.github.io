@@ -1,0 +1,17 @@
+<div class='Overlay -Hidden' data-js-overlay></div>
+
+<div class='NavDrawer' data-js-nav-drawer>
+  <img src='/src/assets/images/default/hamburger.svg' alt='' class='HamburgerSVG' />
+</div>
+<nav class='Megamenu' data-js-megamenu>
+  <ul class='Megamenu__Container'>
+    {{#each defaultData.pages}}
+
+      <li class='Megamenu__Item' data-js-megamenu-item>
+        <a href='{{link}}'>
+          {{name}}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</nav>
