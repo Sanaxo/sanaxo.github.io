@@ -211,7 +211,7 @@ const initializeVideo = (videoContainer) => {
     );
 
     const videoPreviewName = videoContainer.getAttribute('data-js-preview-name');
-    const previewImageSource = `https://sanaxo.github.io/assets/preview/${videoPreviewName}-${previewImageNumber}.jpg`;
+    const previewImageSource = `https://sanaxo.github.io/src/assets/videos/preview/${videoPreviewName}-${previewImageNumber}.jpg`;
     timelinePreviewImage.src = previewImageSource;
     timelineContainer.style.setProperty('--preview-position', horizontalCursorPosition);
   };
