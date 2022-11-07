@@ -1,3 +1,7 @@
 <style>
-  .Hide { opacity: 0; transition: opacity 100ms ease-in; }
+  .Hide { background-image: none; opacity: 0; transition: opacity 100ms ease-in; }
 </style>
+<script>
+  window.addEventListener('load', ()=>{ const body = document.querySelector('body');
+  body.classList.remove('Hide'); })
+</script>

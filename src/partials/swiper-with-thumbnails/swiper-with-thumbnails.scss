@@ -47,13 +47,17 @@
 
 .GalleryThumbnails {
   height: 14vh;
+  width: -webkit-fill-available;
   margin-top: 24px;
   box-sizing: border-box;
   overflow: hidden;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1), transparent 88%);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 95%, transparent 100%);
 
   & .swiper-slide {
     width: 25%;
     opacity: 0.4;
+    border: 1px solid gray;
   }
   & .swiper-slide-thumb-active {
     opacity: 1;
@@ -76,7 +80,7 @@
 
   @include mobile {
     top: unset;
-    bottom: 8px;
+    bottom: 24px;
   }
 }
 

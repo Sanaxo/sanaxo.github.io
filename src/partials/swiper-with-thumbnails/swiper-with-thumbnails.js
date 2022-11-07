@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryThumbnail = new Swiper('.GalleryThumbnails', {
     spaceBetween: 10,
     slidesPerView: 'auto',
+    grabCursor: true,
+    slidesOffsetAfter: 80,
     freeMode: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
@@ -16,12 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     spaceBetween: 10,
     centeredSlides: true,
     centeredSlidesBounds: true,
-    zoom: {
-      maxRatio: 5,
-    },
+    grabCursor: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    zoom: {
+      maxRatio: 5,
     },
     thumbs: {
       swiper: galleryThumbnail,

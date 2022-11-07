@@ -5,9 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2D Images</title>
-
+      <style>
+        .Hide { background-image: none; opacity: 0; transition: opacity 100ms ease-in; }
+      </style>
+      <script>
+        window.addEventListener('load', ()=>{ const body = document.querySelector('body');
+        body.classList.remove('Hide'); })
+      </script>
 </head>
-<body>
+<body class="Hide">
   <div class='Overlay -Hidden' data-js-overlay></div>
   
   <div class='NavDrawer' data-js-nav-drawer>
