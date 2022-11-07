@@ -77,6 +77,10 @@ p {
   opacity: 1 !important;
 }
 
+.-VisuallyHidden {
+  opacity: 0 !important;
+}
+
 .-Hidden {
   display: none !important;
 }

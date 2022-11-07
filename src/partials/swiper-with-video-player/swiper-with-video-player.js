@@ -1,4 +1,5 @@
 import './swiper-with-video-player.scss';
+import '../mousestopp-event/mousestopp-event';
 
 // import Swiper JS
 import Swiper from 'swiper/bundle';
@@ -45,6 +46,7 @@ const createVideoElement = (url, videoContainer) => {
 
 const initializeVideo = (videoContainer) => {
   const videoThumbail = videoContainer.querySelector('.Video__Thumbnail');
+  const controlsContainer = videoContainer.querySelector('.Controls__Container');
   const timelineContainer = videoContainer.querySelector('.Controls__TimelineContainer');
   const timeline = timelineContainer.querySelector('.TimeLineSlider');
   const timelinePreviewImage = timeline.querySelector('.TimeLineSlider__PreviewImage');
@@ -129,7 +131,7 @@ const initializeVideo = (videoContainer) => {
     captions.mode = areCaptionsHidden ? 'showing' : 'hidden';
     videoContainer.classList.toggle('-Captions', areCaptionsHidden);
   }
-*/
+ */
 
   // Duration
   video.addEventListener('loadeddata', () => {
@@ -372,6 +374,31 @@ const initializeVideo = (videoContainer) => {
   const videoPlayerDemoContainer = document.querySelector('[data-js-video-demo]');
   if (videoPlayerDemoContainer.classList.contains('-Show')) return;
   videoPlayerDemoContainer.classList.add('-Show');
+
+  const hideControls = () => {
+    console.log('hide controlsContainer: ', controlsContainer);
+    controlsContainer.classList.add('-VisuallyHidden');
+  };
+  const showControls = () => {
+    console.log('show controlsContainer: ', controlsContainer);
+    controlsContainer.classList.remove('-VisuallyHidden');
+  };
+
+  const enableMouseMovementCheck = () => {
+    console.log('enableMouseMovementCheck: ');
+    document.addEventListener('mousestop', hideControls);
+    document.addEventListener('mousemove', showControls);
+  };
+
+  const disableMouseMovementCheck = () => {
+    console.log('enableMouseMovementCheck: ');
+    document.removeEventListener('mousestop', hideControls);
+    document.removeEventListener('mousemove', showControls);
+  };
+
+  video.addEventListener('play', enableMouseMovementCheck);
+  video.addEventListener('pause', disableMouseMovementCheck);
+  video.addEventListener('ended', disableMouseMovementCheck);
 };
 
 const checkVideoContainerElements = () => {
