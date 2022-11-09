@@ -42,6 +42,7 @@ const createVideoElement = (url, videoContainer) => {
   videoSourceElement.setAttribute('src', url);
   videoSourceElement.setAttribute('type', 'video/mp4');
   videoContainer.append(videoElement);
+  initializeVideo(videoContainer);
 };
 
 const initializeVideo = (videoContainer) => {
@@ -354,6 +355,44 @@ const initializeVideo = (videoContainer) => {
 
   video.addEventListener('click', togglePlay);
 
+  const hideControls = () => {
+    console.log('hide controlsContainer: ', controlsContainer);
+    console.log(
+      '!controlsContainer.classList.contains(-VisuallyHidden): ',
+      controlsContainer.classList.contains('-VisuallyHidden')
+    );
+    if (controlsContainer.classList.contains('-VisuallyHidden')) return;
+    controlsContainer.classList.add('-VisuallyHidden');
+  };
+  const showControls = () => {
+    console.log('show controlsContainer: ', controlsContainer);
+    console.log(
+      '!controlsContainer.classList.contains(-VisuallyHidden): ',
+      !controlsContainer.classList.contains('-VisuallyHidden')
+    );
+    if (!controlsContainer.classList.contains('-VisuallyHidden')) return;
+
+    controlsContainer.classList.remove('-VisuallyHidden');
+  };
+
+  const enableMouseMovementCheck = () => {
+    console.log('enableMouseMovementCheck: ');
+    document.addEventListener('mousestop', hideControls);
+    document.addEventListener('mousemove', showControls);
+    setTimeout(hideControls, 1000);
+  };
+
+  const disableMouseMovementCheck = () => {
+    console.log('disableMouseMovementCheck: ');
+    document.removeEventListener('mousestop', hideControls);
+    document.removeEventListener('mousemove', showControls);
+    showControls();
+  };
+
+  video.addEventListener('play', enableMouseMovementCheck);
+  video.addEventListener('pause', disableMouseMovementCheck);
+  video.addEventListener('ended', disableMouseMovementCheck);
+
   const videoSlide = videoContainer.parentNode;
 
   function callback(mutationList, observer) {
@@ -374,31 +413,6 @@ const initializeVideo = (videoContainer) => {
   const videoPlayerDemoContainer = document.querySelector('[data-js-video-demo]');
   if (videoPlayerDemoContainer.classList.contains('-Show')) return;
   videoPlayerDemoContainer.classList.add('-Show');
-
-  const hideControls = () => {
-    console.log('hide controlsContainer: ', controlsContainer);
-    controlsContainer.classList.add('-VisuallyHidden');
-  };
-  const showControls = () => {
-    console.log('show controlsContainer: ', controlsContainer);
-    controlsContainer.classList.remove('-VisuallyHidden');
-  };
-
-  const enableMouseMovementCheck = () => {
-    console.log('enableMouseMovementCheck: ');
-    document.addEventListener('mousestop', hideControls);
-    document.addEventListener('mousemove', showControls);
-  };
-
-  const disableMouseMovementCheck = () => {
-    console.log('enableMouseMovementCheck: ');
-    document.removeEventListener('mousestop', hideControls);
-    document.removeEventListener('mousemove', showControls);
-  };
-
-  video.addEventListener('play', enableMouseMovementCheck);
-  video.addEventListener('pause', disableMouseMovementCheck);
-  video.addEventListener('ended', disableMouseMovementCheck);
 };
 
 const checkVideoContainerElements = () => {
@@ -408,8 +422,6 @@ const checkVideoContainerElements = () => {
       const videoSourceURL = videoContainer.getAttribute('data-js-url');
 
       createVideoElement(videoSourceURL, videoContainer);
-
-      initializeVideo(videoContainer);
     });
   } else return;
 };

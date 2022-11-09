@@ -13,7 +13,6 @@
         cancelable: true,
       });
       e.target.dispatchEvent(event);
-      console.log('e: ', e);
     }, mouseStopDelay);
   });
 })(1000);
