@@ -2,6 +2,8 @@
 
 :root {
   --max-width: 1440px;
+  --default-font-size: 1.3rem;
+  --default-heading-font-size: 2.5rem;
 }
 
 @font-face {
@@ -23,6 +25,7 @@ body {
   background-image: url(../../assets/images/default/BG\ layer\ 1.png);
   background-attachment: fixed;
   font-family: NovaSquare;
+  font-size: var(--default-font-size);
 }
 
 h1,
@@ -31,6 +34,10 @@ h3,
 h4 {
   font-family: Aerial;
   font-weight: 400;
+}
+
+h2 {
+  font-size: var(--default-heading-font-size);
 }
 
 a {
