@@ -23,7 +23,7 @@
     display: block;
     left: -100%;
     bottom: 0;
-    width: 50%;
+    width: fit-content;
     transition: left 150ms ease-in-out;
 
     &.-Show {
@@ -38,7 +38,7 @@
 
     &__Item {
       position: relative;
-      padding: 8px;
+      margin: 8px;
       cursor: pointer;
     }
   }
