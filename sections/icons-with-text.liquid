@@ -1,0 +1,145 @@
+<style>
+  .IconsWithText.page-width {
+    max-width: 130rem;
+    letter-spacing: 0;
+  }
+  .IconsWithText__Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .IconsWithText__Item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .IconWithText__Icon {
+    margin-right: 20px;
+    max-width: 57px;
+    max-height: 57px;
+  }
+
+  .IconsWithText__TextContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .IconsWithText__Heading {
+    margin: 0 0 12px;
+    font: normal normal 500 18px / 22px Montserrat;
+  }
+
+  .IconsWithText__Text {
+    margin: 0;
+    font: normal normal 400 18px / 22px Montserrat;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .IconsWithText__Container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .IconsWithText__Container .IconsWithText__Item {
+      margin-bottom: 29px;
+    }
+    .IconsWithText__Container .IconsWithText__Item:last-child {
+      margin-bottom: 0;
+    }
+    .IconsWithText__Item {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .IconWithText__Icon {
+      margin-right: 25px;
+      max-width: 57px;
+      max-height: 57px;
+    }
+
+    .IconsWithText__TextContainer {
+      font: normal normal 500 16px / 19px Montserrat;
+    }
+
+    .IconsWithText__Text {
+      margin: 0;
+      font: normal normal 400 16px / 19px Montserrat;
+    }
+  }
+</style>
+
+<section
+  class="IconsWithText page-width">
+  <ul
+    class="IconsWithText__Container">
+    {%- for block in section.blocks -%}
+      <li
+        class="IconsWithText__Item">
+        <img
+          class="IconWithText__Icon"
+          srcset='{% if block.settings.image.width >= 288 %}
+          {{ block.settings.image | img_url: '288x' }} 288w,{% endif %}
+        {% if block.settings.image.width >= 576 %}
+          {{ block.settings.image | img_url: '576x' }} 576w,{% endif %}
+        {% if block.settings.image.width >= 550 %}
+          {{ block.settings.image | img_url: '550x' }} 550w,{% endif %}
+        {% if block.settings.image.width >= 1100 %}
+          {{ block.settings.image | img_url: '1100x' }} 1100w{% endif %}'
+        src="{{ block.settings.image | img_url: '550x550' }}"
+        sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+        loading="lazy"
+        alt="{{ block.settings.image.alt | escape }}">
+        <div
+          class="IconsWithText__TextContainer">
+          <h3
+            class="IconsWithText__Heading">
+            {{ block.settings.heading }}
+          </h3>
+          <p
+            class="IconsWithText__Text">
+            {{ block.settings.text }}
+          </p>
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+  {
+    "name": "Icons with Text",
+    "tag": "section",
+    "class": "spaced-section",
+    "max_blocks": 5,
+    "settings": [],
+    "blocks": [
+      {
+        "type": "icon_with_text",
+        "name": "Icon with Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons with Text"
+      }
+    ]
+  }
+{% endschema %}

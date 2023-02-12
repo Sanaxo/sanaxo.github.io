@@ -1,0 +1,174 @@
+{
+  "sections": {
+    "095021a9-4f19-432a-a0e1-6a458fb7311b": {
+      "type": "product-meta",
+      "blocks": {
+        "29be2ff9-1a28-49db-aa64-810f5fbc9f9b": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "8ca92de4-599f-4d8c-805b-56b6146d7e00": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "ba75a964-4ba1-4ce0-b99e-97c77e0adc32": {
+          "type": "price",
+          "settings": {
+            "display_additional_text": true,
+            "additional_text": "inkl. MwSt."
+          }
+        },
+        "0395aff2-1c26-4dbd-98f0-572f0ea4cd60": {
+          "type": "product_availibilty",
+          "settings": {
+            "product_availability_text_available": "Auf Lager, in 2-3 Tagen bei dir",
+            "product_availability_text_unavailable": "Nicht auf Lager",
+            "product_availability_text_color": "#25a525"
+          }
+        },
+        "35493823-19d3-471d-aa92-35c6d1b65d77": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        }
+      },
+      "block_order": [
+        "29be2ff9-1a28-49db-aa64-810f5fbc9f9b",
+        "8ca92de4-599f-4d8c-805b-56b6146d7e00",
+        "ba75a964-4ba1-4ce0-b99e-97c77e0adc32",
+        "0395aff2-1c26-4dbd-98f0-572f0ea4cd60",
+        "35493823-19d3-471d-aa92-35c6d1b65d77"
+      ],
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "disabled": true,
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "subtitle",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "enable_video_looping": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
+    },
+    "ac1a8f40-7131-4362-86ba-70da4bb38882": {
+      "type": "icons-with-text",
+      "blocks": {
+        "d5e5a30f-8682-46cc-8ee2-00d39136dba9": {
+          "type": "icon_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/award-simple-svgrepo-com.svg",
+            "heading": "Droggelbecher",
+            "text": "Droggelbecher"
+          }
+        },
+        "0c4fd28c-cacf-479b-8cfe-c61a0a7b6df6": {
+          "type": "icon_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/award-simple-svgrepo-com.svg",
+            "heading": "Droggelbecher",
+            "text": "Droggelbecher"
+          }
+        },
+        "52ec1646-1026-42ec-9355-6aff40cfd0db": {
+          "type": "icon_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/award-simple-svgrepo-com.svg",
+            "heading": "Droggelbecher",
+            "text": "Droggelbecher"
+          }
+        }
+      },
+      "block_order": [
+        "d5e5a30f-8682-46cc-8ee2-00d39136dba9",
+        "0c4fd28c-cacf-479b-8cfe-c61a0a7b6df6",
+        "52ec1646-1026-42ec-9355-6aff40cfd0db"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "095021a9-4f19-432a-a0e1-6a458fb7311b",
+    "main",
+    "product-recommendations",
+    "ac1a8f40-7131-4362-86ba-70da4bb38882"
+  ]
+}

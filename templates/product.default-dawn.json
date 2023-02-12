@@ -1,0 +1,126 @@
+{
+  "sections": {
+    "095021a9-4f19-432a-a0e1-6a458fb7311b": {
+      "type": "product-meta",
+      "blocks": {
+        "29be2ff9-1a28-49db-aa64-810f5fbc9f9b": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "ba75a964-4ba1-4ce0-b99e-97c77e0adc32": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "8d3a253f-78b0-4cf7-9815-c499ce3a2053": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "35493823-19d3-471d-aa92-35c6d1b65d77": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        }
+      },
+      "block_order": [
+        "29be2ff9-1a28-49db-aa64-810f5fbc9f9b",
+        "ba75a964-4ba1-4ce0-b99e-97c77e0adc32",
+        "8d3a253f-78b0-4cf7-9815-c499ce3a2053",
+        "35493823-19d3-471d-aa92-35c6d1b65d77"
+      ],
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "disabled": true,
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "subtitle",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "enable_video_looping": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
+    }
+  },
+  "order": [
+    "095021a9-4f19-432a-a0e1-6a458fb7311b",
+    "main",
+    "product-recommendations"
+  ]
+}

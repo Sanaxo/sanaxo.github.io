@@ -1,0 +1,78 @@
+<style>
+  .Image__Swiper {
+    width: 100%;
+  }
+  .Image__Swiper .swiper-slide .Swiper__Image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .Image__SwiperContainer .swiper-pagination {
+    position: relative;
+  }
+  .Image__SwiperContainer .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    /* UI Properties */
+    background: #E5E5E5 0 0 no-repeat padding-box;
+    box-shadow: inset 0 3px 6px #00000029;
+  }
+</style>
+
+<div
+  class="Image__SwiperContainer">
+  <div
+    class="Image__Swiper swiper">
+    <div
+      class="Image__SwiperWrapper swiper-wrapper">
+      {%- for media_item in media -%}
+        <div
+          class="swiper-slide">
+          <img
+            class="Swiper__Image"
+            srcset='
+          {% if media_item.preview_image.width >= 288 %}
+            {{ media_item.preview_image | img_url: '288x' }} 288w,{% endif %}
+          {% if media_item.preview_image.width >= 576 %}
+            {{ media_item.preview_image | img_url: '576x' }} 576w,{% endif %}
+          {% if media_item.preview_image.width >= 550 %}
+            {{ media_item.preview_image | img_url: '550x' }} 550w,{% endif %}
+          {% if media_item.preview_image.width >= 1100 %}
+            {{ media_item.preview_image | img_url: '1100x' }} 1100w{% endif %}'
+          src="{{ media_item | img_url: '550x550' }}"
+          sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+          loading="lazy"
+          width="576"
+          height="{{ 576 | divided_by: media_item.preview_image.aspect_ratio | ceil }}"
+          alt="{{ media_item.preview_image.alt | escape }}">
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div
+    class="swiper-pagination"></div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+  const imageSwiper = new Swiper('.Image__Swiper', {
+    spaceBetween: 20,
+    slidesPerView: 1.2,
+    centeredSlides: true,
+    centerInsufficientSlides: true,
+    grabCursor: true,
+    pagination: {
+      el: '.Image__SwiperContainer .swiper-pagination',
+      type: 'bullets'
+    },
+    zoom: {
+      maxRatio: 5
+    }
+  });
+</script>

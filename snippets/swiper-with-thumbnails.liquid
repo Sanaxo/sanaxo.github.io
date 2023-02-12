@@ -1,0 +1,210 @@
+<style>
+  .Gallery__Thumbnails.swiper {
+    max-width: var(--gallery-thumbnail-width);
+    max-height: var(--gallery-thumbnail-height);
+    margin-right: 20px;
+  }
+
+  .Thumbnails__Swiper .swiper-slide {
+    position: relative;
+    max-height: var(--gallery-thumbnail-width);
+    max-width: var(--gallery-thumbnail-width);
+    min-height: var(--gallery-thumbnail-width);
+    min-width: var(--gallery-thumbnail-width);
+    margin: 15px 0;
+  }
+
+  .Thumbnails__Swiper .swiper-slide .Swiper__Image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .Thumbnails__Swiper .swiper-slide.swiper-slide-thumb-active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 2px solid rgb(var(--color-base-accent-1));
+    border-radius: 5px;
+  }
+  .Gallery__Swiper.swiper {
+    max-width: var(--gallery-width);
+    max-height: var(--gallery-height);
+    width: var(--gallery-width);
+    height: var(--gallery-height);
+  }
+
+  .Gallery__Swiper .swiper-slide .Swiper__Image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .Gallery__NavigationContainer {
+    display: flex;
+    justify-content: center;
+    height: 23px;
+  }
+
+  .Gallery__NavigationContainer .swiper-button-prev,
+  .Gallery__NavigationContainer .swiper-button-next {
+    position: relative;
+    width: 23px;
+    height: 23px;
+    border-radius: 12px;
+    opacity: 1;
+    margin: 0 16px 5px;
+    padding: 4px;
+    top: 0;
+  }
+  .Gallery__NavigationContainer .swiper-button-prev::after,
+  .Gallery__NavigationContainer .swiper-button-next::after {
+    display: none;
+  }
+  .Icon__ChevronLeft {
+    transform: rotate(180deg);
+  }
+  .Icon__ChevronLeft,
+  .Icon__ChevronRight {
+    height: 23px;
+    width: 23px;
+  }
+</style>
+
+<div
+  class="Gallery__Thumbnails swiper">
+  <div
+    class="Thumbnails__Swiper swiper-wrapper">
+    {%- for media_item in media -%}
+      <div
+        class="swiper-slide">
+        <img
+          class="Swiper__Image"
+          srcset='
+        {% if media_item.preview_image.width >= 288 %}
+          {{ media_item.preview_image | img_url: '288x' }} 288w,{% endif %}
+        {% if media_item.preview_image.width >= 576 %}
+          {{ media_item.preview_image | img_url: '576x' }} 576w,{% endif %}
+        {% if media_item.preview_image.width >= 550 %}
+          {{ media_item.preview_image | img_url: '550x' }} 550w,{% endif %}
+        {% if media_item.preview_image.width >= 1100 %}
+          {{ media_item.preview_image | img_url: '1100x' }} 1100w{% endif %}'
+        src="{{ media_item | img_url: '550x550' }}"
+        sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+        loading="lazy"
+        width="576"
+        height="{{ 576 | divided_by: media_item.preview_image.aspect_ratio | ceil }}"
+        alt="{{ media_item.preview_image.alt | escape }}">
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<div
+  class="Gallery__SwiperContainer">
+  <div
+    class="Gallery__Swiper swiper">
+    <div
+      class="Gallery__SwiperWrapper swiper-wrapper">
+      {%- for media_item in media -%}
+        <div
+          class="swiper-slide">
+          <img
+            class="Swiper__Image"
+            srcset='
+          {% if media_item.preview_image.width >= 288 %}
+            {{ media_item.preview_image | img_url: '288x' }} 288w,{% endif %}
+          {% if media_item.preview_image.width >= 576 %}
+            {{ media_item.preview_image | img_url: '576x' }} 576w,{% endif %}
+          {% if media_item.preview_image.width >= 550 %}
+            {{ media_item.preview_image | img_url: '550x' }} 550w,{% endif %}
+          {% if media_item.preview_image.width >= 1100 %}
+            {{ media_item.preview_image | img_url: '1100x' }} 1100w{% endif %}'
+          src="{{ media_item | img_url: '550x550' }}"
+          sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+          loading="lazy"
+          width="576"
+          height="{{ 576 | divided_by: media_item.preview_image.aspect_ratio | ceil }}"
+          alt="{{ media_item.preview_image.alt | escape }}">
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div
+    class="Gallery__NavigationContainer">
+    <div
+      class="swiper-button-prev">
+      <svg
+        class="Icon__ChevronLeft"
+        viewBox="0 0 185.343 185.343"
+        xml:space="preserve">
+        <g>
+          <g>
+            <path
+              style="fill:#010002;"
+              d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       l74.352-74.347L44.114,18.32c-4.194-4.194-4.194-10.987,0-15.175c4.194-4.194,10.987-4.194,15.18,0l81.934,81.934
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       c4.194,4.194,4.194,10.987,0,15.175l-81.934,81.939C57.201,184.293,54.454,185.343,51.707,185.343z" />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div
+      class="swiper-button-next">
+      <svg
+        class="Icon__ChevronRight"
+        viewBox="0 0 185.343 185.343"
+        xml:space="preserve">
+        <g>
+          <g>
+            <path
+              style="fill:#010002;"
+              d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         l74.352-74.347L44.114,18.32c-4.194-4.194-4.194-10.987,0-15.175c4.194-4.194,10.987-4.194,15.18,0l81.934,81.934
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         c4.194,4.194,4.194,10.987,0,15.175l-81.934,81.939C57.201,184.293,54.454,185.343,51.707,185.343z" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+  const galleryThumbnail = new Swiper('.Gallery__Thumbnails', {
+    spaceBetween: 10,
+    slidesOffsetAfter: 30,
+    slidesPerView: 4,
+    grabCursor: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    direction: 'vertical'
+  });
+
+  const gallery = new Swiper('.Gallery__Swiper', {
+    spaceBetween: 10,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    grabCursor: true,
+    navigation: {
+      nextEl: '.Gallery__NavigationContainer .swiper-button-next',
+      prevEl: '.Gallery__NavigationContainer .swiper-button-prev'
+    },
+    zoom: {
+      maxRatio: 5
+    },
+    thumbs: {
+      swiper: galleryThumbnail
+    }
+  });
+</script>
