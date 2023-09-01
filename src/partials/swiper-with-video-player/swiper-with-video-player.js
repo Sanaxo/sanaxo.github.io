@@ -362,24 +362,24 @@ const initializeVideo = (videoContainer) => {
       controlsContainer.classList.contains('-VisuallyHidden')
     );
     if (controlsContainer.classList.contains('-VisuallyHidden')) return;
-    controlsContainer.classList.add('-VisuallyHidden');
+    else {
+      controlsContainer.classList.add('-VisuallyHidden');
+    }
   };
   const showControls = () => {
-    console.log('show controlsContainer: ', controlsContainer);
-    console.log(
-      '!controlsContainer.classList.contains(-VisuallyHidden): ',
-      !controlsContainer.classList.contains('-VisuallyHidden')
-    );
     if (!controlsContainer.classList.contains('-VisuallyHidden')) return;
-
-    controlsContainer.classList.remove('-VisuallyHidden');
+    else {
+      controlsContainer.classList.remove('-VisuallyHidden');
+    }
   };
 
   const enableMouseMovementCheck = () => {
-    console.log('enableMouseMovementCheck: ');
-    document.addEventListener('mousestop', hideControls);
+    document.addEventListener('mousestop', () => {
+      if (video.currentTime > 0 && !video.paused && !video.ended) {
+        setTimeout(hideControls, 1000);
+      }
+    });
     document.addEventListener('mousemove', showControls);
-    setTimeout(hideControls, 1000);
   };
 
   const disableMouseMovementCheck = () => {

@@ -126,9 +126,9 @@
   background: none;
   border: none;
   color: inherit;
-  font: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transform: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
 }
 
 .Controls__Container::before {
@@ -238,6 +238,10 @@
   display: none;
 }
 
+.Video__Container svg {
+  display: block;
+}
+
 .Video__Container.-Scrubbing .Video__Thumbnail {
   display: block;
 }
@@ -333,6 +337,10 @@
   align-items: center;
   gap: 0.25rem;
   flex-grow: 1;
+
+  @include mobile {
+    font-size: 1rem;
+  }
 }
 
 .Video__Container.-Captions .Controls__ClosedCaptions {

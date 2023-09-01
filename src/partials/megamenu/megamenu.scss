@@ -1,6 +1,6 @@
 .Megamenu {
   font-family: Aerial;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   top: 0;
   z-index: 99;
 
@@ -59,11 +59,10 @@
   position: fixed;
   z-index: 100;
   display: block;
-  top: 4px;
-  left: 4px;
+  top: 0;
+  left: 0;
   height: 48px;
   width: 48px;
-  border-radius: 48px;
 
   @include tablet-and-up {
     display: none;
