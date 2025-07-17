@@ -1,73 +1,332 @@
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
       <style>
-        .Hide { background-image: none; opacity: 0; transition: opacity 100ms ease-in; }
-      </style>
-      <script>
-        window.addEventListener('load', ()=>{ const body = document.querySelector('body');
-        body.classList.remove('Hide'); })
-      </script>
-  </head>
-  <body  class="Hide">
-    <div class='Main Index'>
-      <ul class='ContentList'>
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='/dist/sketches.html'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                Sketches
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='/src/assets/images/sketches/23.04.20.2.png' alt='Sketches' />
-              </div>
-            </a>
-          </li>
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='/dist/blender.html'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                Blender
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='/src/assets/images/blender/polocola3.png' alt='Blender' />
-              </div>
-            </a>
-          </li>
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='/dist/twodimages.html'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                2D Images
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='/src/assets/images/twodimages/26.03.21-1252.png' alt='2D Images' />
-              </div>
-            </a>
-          </li>
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='/dist/javascript.html'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                Javascript
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='/src/assets/images/javascript/preview.png' alt='Javascript' />
-              </div>
-            </a>
-          </li>
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='https://github.com/Sanaxo'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                Github
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='/src/assets/images/default/github-logo.png' alt='Github' />
-              </div>
-            </a>
-          </li>
-      </ul>
+  .Hide { background-image: none; opacity: 0; transition: opacity 100ms ease-in; }
+</style>
+<script>
+  window.addEventListener('load', ()=>{ const body = document.querySelector('body');
+  body.classList.remove('Hide'); })
+</script></head>
+<body>
+  <div class="Main">
+    <div class="Navigation">
+      <div class="Sidebar__Container" data-js-sidebar>
+        <button class="Sidebar__Toggle" data-js-toggle>
+            <img src='/src/assets/images/default/Hamburger2.svg' alt='' class='Sidebar__ToggleIcon' loading="lazy" />
+        </button>
+        <ul class="Sidebar__List" data-js-sidebar-list>
+            <li class="Sidebar__ListItem">
+              Illustrious
+            </li>
+            <li class="Sidebar__ListItem">
+              Pony-Diffusion
+            </li>
+            <li class="Sidebar__ListItem">
+              Stable-DiffusionXL
+            </li>
+        </ul>
+      </div>
     </div>
-    <script defer src='index.js'></script>
+      <div class="Gallery__Container"  data-js-gallery="Illustrious">
+        <h2 class="Gallery__Heading">
+          Illustrious
+        </h2>
+        <div class='Gallery__Wrapper'>
+          <div class='Gallery'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/001.webp 300w, /src/assets/ai-images/illustrious/001.webp 600w, /src/assets/ai-images/illustrious/001.webp 900w, /src/assets/ai-images/illustrious/001.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/002.webp 300w, /src/assets/ai-images/illustrious/002.webp 600w, /src/assets/ai-images/illustrious/002.webp 900w, /src/assets/ai-images/illustrious/002.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/003.webp 300w, /src/assets/ai-images/illustrious/003.webp 600w, /src/assets/ai-images/illustrious/003.webp 900w, /src/assets/ai-images/illustrious/003.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/004.webp 300w, /src/assets/ai-images/illustrious/004.webp 600w, /src/assets/ai-images/illustrious/004.webp 900w, /src/assets/ai-images/illustrious/004.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+            </div>
+            <div class='swiper-button-next'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.62500015892703, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M11.52 0L23.13 16.56L11.655 34.65L0 34.56L11.655 16.605L0.09 0L11.52 0'
+                ></path>
+              </svg>
+            </div>
+            <div class='swiper-button-prev'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.7275649914128, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M23.0694 0L11.4869 0L0 16.5781L11.3915 34.56L23.0694 34.56L11.5524 16.419L23.0694 0'
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class='GalleryThumbnails'>
+          <div class='swiper-wrapper'>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/001.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/002.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/003.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/004.webp' loading="lazy" />
+              </div>
+          </div>
+        </div>
+      </div>      <div class="Gallery__Container"  data-js-gallery="Pony-Diffusion">
+        <h2 class="Gallery__Heading">
+          Pony-Diffusion
+        </h2>
+        <div class='Gallery__Wrapper'>
+          <div class='Gallery'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/001.webp 300w, /src/assets/ai-images/illustrious/001.webp 600w, /src/assets/ai-images/illustrious/001.webp 900w, /src/assets/ai-images/illustrious/001.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/002.webp 300w, /src/assets/ai-images/illustrious/002.webp 600w, /src/assets/ai-images/illustrious/002.webp 900w, /src/assets/ai-images/illustrious/002.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/003.webp 300w, /src/assets/ai-images/illustrious/003.webp 600w, /src/assets/ai-images/illustrious/003.webp 900w, /src/assets/ai-images/illustrious/003.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/004.webp 300w, /src/assets/ai-images/illustrious/004.webp 600w, /src/assets/ai-images/illustrious/004.webp 900w, /src/assets/ai-images/illustrious/004.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+            </div>
+            <div class='swiper-button-next'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.62500015892703, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M11.52 0L23.13 16.56L11.655 34.65L0 34.56L11.655 16.605L0.09 0L11.52 0'
+                ></path>
+              </svg>
+            </div>
+            <div class='swiper-button-prev'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.7275649914128, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M23.0694 0L11.4869 0L0 16.5781L11.3915 34.56L23.0694 34.56L11.5524 16.419L23.0694 0'
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class='GalleryThumbnails'>
+          <div class='swiper-wrapper'>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/001.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/002.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/003.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/004.webp' loading="lazy" />
+              </div>
+          </div>
+        </div>
+      </div>      <div class="Gallery__Container"  data-js-gallery="Stable-DiffusionXL">
+        <h2 class="Gallery__Heading">
+          Stable-DiffusionXL
+        </h2>
+        <div class='Gallery__Wrapper'>
+          <div class='Gallery'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/001.webp 300w, /src/assets/ai-images/illustrious/001.webp 600w, /src/assets/ai-images/illustrious/001.webp 900w, /src/assets/ai-images/illustrious/001.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/002.webp 300w, /src/assets/ai-images/illustrious/002.webp 600w, /src/assets/ai-images/illustrious/002.webp 900w, /src/assets/ai-images/illustrious/002.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/003.webp 300w, /src/assets/ai-images/illustrious/003.webp 600w, /src/assets/ai-images/illustrious/003.webp 900w, /src/assets/ai-images/illustrious/003.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class='swiper-slide'>
+                  <div class='Slide__Content'>
+                    <img
+                      class='Image lazyload'
+                      data-sizes='auto'
+                      data-srcset='/src/assets/ai-images/illustrious/004.webp 300w, /src/assets/ai-images/illustrious/004.webp 600w, /src/assets/ai-images/illustrious/004.webp 900w, /src/assets/ai-images/illustrious/004.webp 1200w'
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+            </div>
+            <div class='swiper-button-next'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.62500015892703, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M11.52 0L23.13 16.56L11.655 34.65L0 34.56L11.655 16.605L0.09 0L11.52 0'
+                ></path>
+              </svg>
+            </div>
+            <div class='swiper-button-prev'>
+              <svg width='34.56pt' height='34.56pt' viewBox='0 0 34.56 34.56'>
+                <defs></defs>
+                <path
+                  id='shape0'
+                  transform='translate(5.7275649914128, 0)'
+                  fill='#000000'
+                  fill-rule='evenodd'
+                  stroke='#000000'
+                  stroke-width='2.88'
+                  stroke-linecap='square'
+                  stroke-linejoin='bevel'
+                  d='M23.0694 0L11.4869 0L0 16.5781L11.3915 34.56L23.0694 34.56L11.5524 16.419L23.0694 0'
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class='GalleryThumbnails'>
+          <div class='swiper-wrapper'>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/001.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/002.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/003.webp' loading="lazy" />
+              </div>
+              <div class='swiper-slide'>
+                <img class='Image lazyload' data-src='/src/assets/ai-images/illustrious/004.webp' loading="lazy" />
+              </div>
+          </div>
+        </div>
+      </div>  </div>
 
-  </body>
+  <script defer src='index.js'></script>
+</body>
 </html>

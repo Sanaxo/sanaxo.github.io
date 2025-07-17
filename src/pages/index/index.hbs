@@ -1,30 +1,20 @@
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{index.title}}</title>
-      {{> loading/loading}}
-
-  </head>
-  <body  class="Hide">
-    <div class='Main Index'>
-      <ul class='ContentList'>
-        {{#each defaultData.pages}}
-          <li class='ListItem__Container'>
-            <a class='ListItem' href='{{link}}'>
-              <h2 class='ListItem__Text' item-state='not-active'>
-                {{name}}
-              </h2>
-              <div class='ListItem__Image'>
-                <img class='Image lazyload' data-src='{{img}}' alt='{{name}}' />
-              </div>
-            </a>
-          </li>
-        {{/each}}
-      </ul>
+      {{> loading/loading}}</head>
+<body>
+  <div class="Main">
+    <div class="Navigation">
+      {{> sidebar-navigation/sidebar-navigation nav_items=index.model}}
     </div>
-    <script defer src='index.js'></script>
+    {{#each index.model}}
+      {{> multiple-swiper-galleries/multiple-swiper-galleries name=name images=images}}
+    {{/each}}
+  </div>
 
-  </body>
+  <script defer src='index.js'></script>
+</body>
 </html>

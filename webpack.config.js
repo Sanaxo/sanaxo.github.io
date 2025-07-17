@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const mergeJSON = require('handlebars-webpack-plugin/utils/mergeJSON');
 const projectData = mergeJSON(path.join(__dirname, 'src/pages/**/*.json'));
@@ -138,5 +139,17 @@ module.exports = {
       onBeforeSave: function (Handlebars, resultHtml, filename) {},
       onDone: function (Handlebars, filename) {},
     }),*/
+    new webpack.ProvidePlugin({
+      process: 'process/browser'
+    })
   ],
+  resolve: {
+    fallback: {
+      process: require.resolve('process/browser'),
+      util: require.resolve('util/'),
+      stream: require.resolve('stream-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      assert: require.resolve('assert/')
+    }
+  },
 };

@@ -7,7 +7,7 @@
     height: 80%;
     width: -webkit-fill-available;
     width: -moz-available;
-    padding: 0 64px;
+    padding: 0 72px;
     margin: auto;
 
     @include mobile {
@@ -51,8 +51,8 @@
   margin-top: 24px;
   box-sizing: border-box;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1), transparent 88%);
-  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 95%, transparent 100%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1), transparent 97%);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 97%, transparent 100%);
 
   & .swiper-slide {
     width: 25%;
@@ -86,8 +86,16 @@
 }
 
 .swiper-button-prev {
-  left: 0;
+  left: 16px;
+  
+  @include mobile {
+    display: none;
+  }
 }
 .swiper-button-next {
-  right: 0;
+  right: 16px;
+
+  @include mobile {
+    display: none;
+  }
 }
