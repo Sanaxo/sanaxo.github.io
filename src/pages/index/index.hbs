@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{index.title}}</title>
-      {{> loading/loading}}</head>
+      {{> loading/loading}}
+</head>
 <body>
-  <div class="Main">
-    <div class="Navigation">
-      {{> sidebar-navigation/sidebar-navigation nav_items=index.model}}
-    </div>
+  {{> header/header models=index.model}}
+  
+  <div class="Main" data-js-main>
     {{#each index.model}}
       {{> multiple-swiper-galleries/multiple-swiper-galleries name=name images=images}}
     {{/each}}
