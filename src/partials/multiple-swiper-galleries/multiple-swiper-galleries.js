@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallerySwiper = new Swiper(galleryElement, {
       spaceBetween: 10,
       centeredSlides: true,
+      slidesPerView: 1,
       centeredSlidesBounds: true,
       grabCursor: true,
       navigation: {

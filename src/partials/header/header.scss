@@ -21,6 +21,8 @@
       &Item {
         font-size: 0.9rem;
         text-decoration: underline;
+        user-select: none;
+        cursor: pointer;
       }
     }
   }
