@@ -7,13 +7,7 @@
       {{> loading/loading}}
 </head>
 <body>
-  {{> header/header models=index.model}}
-  
-  <div class="Main" data-js-main>
-    {{#each index.model}}
-      {{> multiple-swiper-galleries/multiple-swiper-galleries name=name images=images}}
-    {{/each}}
-  </div>
+  {{> roddit/roddit }}
 
   <script defer src='index.js'></script>
 </body>

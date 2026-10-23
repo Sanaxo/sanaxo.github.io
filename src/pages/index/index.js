@@ -2,10 +2,8 @@ import 'lazysizes';
 
 import './index.scss';
 
-import '../../partials/multiple-swiper-galleries/multiple-swiper-galleries';
-import '../../partials/sidebar-navigation/sidebar-navigation';
-import '../../partials/header/header';
 import '../../defaults/scripts/default';
+import '../../partials/roddit/roddit'
 
 /*
 import cover from "/src/assets/sd-images/ComfyUI_00074_.png"; // importing img file

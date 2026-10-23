@@ -1,0 +1,35 @@
+<section class="roddit__container" data-js-roddit-container>
+  <div class="roddit__header" data-js-roddit-header>
+      <div class="header__logo">
+
+      </div>
+      <div class="header__title">
+        {{name}}
+      </div>
+      <div class="header__menu" data-js-roddit-menu>
+        <div class="menu__open-button" data-js-roddit-menu-open-button>
+
+        </div>
+        <div class="menu__main" data-js-roddit-menu-main>
+          <div class="menu__close-button"  data-js-roddit-menu-close-button>
+
+          </div>
+          <ul class="menu__list" data-js-roddit-menu-list>
+            {{#each menuItems}}
+              <li class="menu__list-item" data-js-rodit-menu-list-item>
+                {{name}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <div class="roddit__main" data-js-roddit-main>
+
+  </div>
+
+  <div class="roddit__footer" data-js-roddit-footer>
+
+  </div>
+</section>
