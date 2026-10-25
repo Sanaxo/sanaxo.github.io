@@ -5,7 +5,187 @@
     "title": "Switching Languages",
     "content": {
       "text": "Programmers be like",
-      "image": "/src/assets/roddit/aV7NE4n_460swp.webp",
+      "image": "/src/assets/roddit/aV7NE4n_460swp.png",
+      "video": ""
+    }
+  },
+  "002": {
+    "username": "PavementPoet88",
+    "userimage": "",
+    "title": "Somebody out here is just making the city better",
+    "content": {
+      "text": "Walked past this utility box today and stopped for a solid five minutes. The guy in the painting has the energy of someone who is 100% in the stands in the 90th minute. Whoever did this, thank you.",
+      "image": "/src/assets/roddit/a11D03D_460swp.png",
+      "video": ""
+    }
+  },
+  "003": {
+    "username": "quiet_toast_7",
+    "userimage": "",
+    "title": "My cat's reaction when I mentioned the word 'watermelon'",
+    "content": {
+      "text": "He did not like that I was thinking about eating it. He made his intentions very clear. We're never speaking of this again.",
+      "image": "/src/assets/roddit/aGEVNYK_460swp.png",
+      "video": ""
+    }
+  },
+  "004": {
+    "username": "StackOverflowSurvivor",
+    "userimage": "",
+    "title": "Me after reading the same support ticket for the third time",
+    "content": {
+      "text": "'Have you tried turning it off and on again?' That was ticket number one. It is now ticket number forty. My feelings are exactly this cube's feelings.",
+      "image": "/src/assets/roddit/aQ1N7Ww_460swp.png",
+      "video": ""
+    }
+  },
+  "005": {
+    "username": "frame_dropper",
+    "userimage": "",
+    "title": "RTX off vs RTX on",
+    "content": {
+      "text": "My face when I toggle ray tracing in an 8K demo and my PC starts making sounds it was never supposed to make. Nobody is safe. Not even the guy next to me.",
+      "image": "/src/assets/roddit/aQdm1KK_460swp.png",
+      "video": ""
+    }
+  },
+  "006": {
+    "username": "off_by_one",
+    "userimage": "",
+    "title": "The moment a math professor sees our production code",
+    "content": {
+      "text": "Every time one of them sees us write x = x + 1 like it's a personality trait, they look at us like we committed a war crime. And honestly? Fair. But it compiles! That's what counts!",
+      "image": "/src/assets/roddit/aVwKj9O_460swp.png",
+      "video": ""
+    }
+  },
+  "007": {
+    "username": "midnight_archivist",
+    "userimage": "",
+    "title": "My two roommates showing up to save the day",
+    "content": {
+      "text": "They just waddled into the kitchen like they were on a mission and I've never felt safer in my life. The chicken has zero idea what's going on but commitment is key.",
+      "image": "/src/assets/roddit/aVwNQPn_460swp.png",
+      "video": ""
+    }
+  },
+  "008": {
+    "username": "BiscuitAndBatter",
+    "userimage": "",
+    "title": "This is the only prayer I need",
+    "content": {
+      "text": "Frame this one. The dog isn't even trying, the stool is doing all the work, and the dog still believes. I need that energy in my life.",
+      "image": "/src/assets/roddit/aXoGNog_460swp.png",
+      "video": ""
+    }
+  },
+  "009": {
+    "username": "timberline_tom",
+    "userimage": "",
+    "title": "The whole city is finally done with Karen",
+    "content": {
+      "text": "Even the street signs are standing up for themselves. This sign has more patience than any of us. If I were a piece of infrastructure I would be exactly this stop sign.",
+      "image": "/src/assets/roddit/aYoZ3NN_460swp.png",
+      "video": ""
+    }
+  },
+  "010": {
+    "username": "clutch_or_kick",
+    "userimage": "",
+    "title": "Got a 'play of the match' and the chat went absolutely feral",
+    "content": {
+      "text": "1v5 clutch and the game rewards me with a quote I didn't even ask for. Sometimes the game just understands you. My whole squad is still spamming in the voice channel about it.",
+      "image": "/src/assets/roddit/aZDg66Q_460swp.png",
+      "video": ""
+    }
+  },
+  "011": {
+    "username": "NorthernVoyager",
+    "userimage": "",
+    "title": "Canada's newest warship, now with 20% less fuel",
+    "content": {
+      "text": "Green, fuel-efficient, low maintenance. The cat is handling surveillance and the goose is handling the actual war. The Armed Forces are ready and I am not.",
+      "image": "/src/assets/roddit/abVAnnE_460swp.png",
+      "video": ""
+    }
+  },
+  "012": {
+    "username": "screen_saver_sam",
+    "userimage": "",
+    "title": "He came through the screen and I'm not even mad",
+    "content": {
+      "text": "I was just looking at a cow photo for my thesis and out pops my cat like he's been in there the whole time. I'm choosing to believe he was researching. He's a hard worker.",
+      "image": "/src/assets/roddit/ad84gKD_460swp.png",
+      "video": ""
+    }
+  },
+  "013": {
+    "username": "caution_tape_carl",
+    "userimage": "",
+    "title": "The moment you realize the lab has a microwave",
+    "content": {
+      "text": "I was doing everything by the book, carefully following the instructions, and then I look up and there's a microwave in the corner of the lab. Why is it there. What is it for. Why am I suddenly the one asking these questions.",
+      "image": "/src/assets/roddit/ad8oqgZ_460swp.png",
+      "video": ""
+    }
+  },
+  "014": {
+    "username": "velvet_vanguard",
+    "userimage": "",
+    "title": "I just found my local branch",
+    "content": {
+      "text": "The sign out front is 10/10. The parking lot is empty for a reason and I respect it. I'm just here for the vibes, no rush.",
+      "image": "/src/assets/roddit/anQ7Gvz_460swp.png",
+      "video": ""
+    }
+  },
+  "015": {
+    "username": "blue_screen_bob",
+    "userimage": "",
+    "title": "Found this one in the server room today, she looks confused",
+    "content": {
+      "text": "No anti-static wristband, sitting on the switch, no keyboard in sight. She's doing her best and honestly she's been out here longer than any of us. Security has been notified. They did not believe me.",
+      "image": "/src/assets/roddit/ap9V3n5_460swp.png",
+      "video": ""
+    }
+  },
+  "016": {
+    "username": "update_wednesday",
+    "userimage": "",
+    "title": "Upgraded to Windows 11 and my recycle bin didn't even blink",
+    "content": {
+      "text": "I upgraded, I waited, I held my breath. And it's the exact same trash can. The confidence though. The confidence is unmatched.",
+      "image": "/src/assets/roddit/axMmBgM_460swp.png",
+      "video": ""
+    }
+  },
+  "017": {
+    "username": "std_dev_dan",
+    "userimage": "",
+    "title": "I accidentally derived a new type of distribution",
+    "content": {
+      "text": "My professor asked for an example of a distribution that doesn't exist yet. I showed up with this. I don't know what I'm doing but I committed to it. The ghost in the mean is doing a lot of work.",
+      "image": "/src/assets/roddit/ayMMv7q_460swp.png",
+      "video": ""
+    }
+  },
+  "018": {
+    "username": "cable_splice_cathy",
+    "userimage": "",
+    "title": "When the user mentions any other browser",
+    "content": {
+      "text": "I've been loading their page for 45 minutes and now they want to download something new. I heard that. I heard every word of it. That's fine. That's completely fine. I'm not mad.",
+      "image": "/src/assets/roddit/ayeBeGX_460swp.png",
+      "video": ""
+    }
+  },
+  "019": {
+    "username": "KettleDrummer",
+    "userimage": "",
+    "title": "German proverbs really just say what they say",
+    "content": {
+      "text": "Apparently this one dates back to 1676. The entire sentence is just the word 'bratwurst' three times and it still makes complete sense. Respect to whoever was doing this grammar back then.",
+      "image": "/src/assets/roddit/Bratwurdtbratgerät.png",
       "video": ""
     }
   }

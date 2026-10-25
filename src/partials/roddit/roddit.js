@@ -180,7 +180,6 @@ const createPost = (userimage='', username='', title='', text='', image='', vide
 
   const postContent = postContentTemplate(text, image, video)
   postElement.innerHTML = postTemplate(userimage, username, title, postContent)
-  console.log('postElement: ', postElement)
 
   return postElement
 }
