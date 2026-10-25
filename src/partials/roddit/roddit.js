@@ -1,3 +1,5 @@
+import posts from './src/pages/index/roddit_posts.json'
+
 const postTemplate = (userimage, username, title, content) => `
   <div class="post__container" data-js-post-container>
 
