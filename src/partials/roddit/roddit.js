@@ -1,12 +1,12 @@
-import posts from './src/pages/index/roddit_posts.json'
+import posts from '../../pages/index/roddit_posts.json'
 
-const postTemplate = (userimage, username, title, content) => `
+const postTemplate = (userimage, username, title, content, timestamp) => `
   <div class="post__container" data-js-post-container>
 
     <div class="post__header" data-js-post-header>
       <div class="header__user" data-js-post-user>
 
-        <img src="${userimage}" alt="user image" data-js-post-user-image>
+        <img class="user__image" src="${userimage}" alt="user image" data-js-post-user-image>
         <div class="user__name" data-js-post-user-name>
           ${username}
         </div>
@@ -17,6 +17,9 @@ const postTemplate = (userimage, username, title, content) => `
        ${title}
       </div>
 
+      <div class="header__timestamp">
+       ${timestamp}
+      </div>
     </div>    
 
     <div class="post__content" data-js-post-content>
@@ -38,8 +41,7 @@ const postContentTemplate = (text, image, video) => {
     `
     contentHTML = contentHTML + textContent
   }
-  console.log('video != ', image != '')
-  console.log('image: ', image)
+
   if (image != '') {
     const imageContent = `
       <img src="${image}" alt="post image" data-js-post-image>
@@ -50,8 +52,6 @@ const postContentTemplate = (text, image, video) => {
     console.log('contentHTML: ', contentHTML)
   }
 
-  console.log('video: ', video)
-  console.log('video != ', video != '')
   if (video != '') {
     const videoContent = `
       <div
@@ -179,12 +179,42 @@ const createPost = (userimage='', username='', title='', text='', image='', vide
   postElement.setAttribute('data-js-post', 'true')
 
   const postContent = postContentTemplate(text, image, video)
-  postElement.innerHTML = postTemplate(userimage, username, title, postContent)
+
+  let timestamp = ''
+  postElement.innerHTML = postTemplate(userimage, username, title, postContent, timestamp)
 
   return postElement
 }
 
+const postIds = Object.keys(posts)
+const loadedIds = new Set()
+
+const loadRandomPost = () => {
+  const available = postIds.filter(id => !loadedIds.has(id))
+  if (available.length === 0) {
+    return null
+  }
+
+  const id = available[Math.floor(Math.random() * available.length)]
+  loadedIds.add(id)
+
+  const postData = posts[id]
+  const post = createPost(postData.userimage, postData.username, postData.title, postData.content.text, postData.content.image, postData.content.video)
+
+  return post
+}
+
 const rodditContainers = document.querySelectorAll('[data-js-roddit-container]');
+
+const initPosts = (container) => {
+  const post = loadRandomPost()
+  container.appendChild(post)
+  window.requestAnimationFrame(()=>{
+    if (container.scrollHeight < window.innerHeight) {
+      initPosts(container)
+    } else return
+  })
+}
 
 rodditContainers.forEach(rodditContainer => {
   const header = rodditContainer.querySelector('[data-js-roddit-header]');
@@ -197,9 +227,8 @@ rodditContainers.forEach(rodditContainer => {
   const main = rodditContainer.querySelector('[data-js-roddit-main]');
   const footer = rodditContainer.querySelector('[data-js-roddit-footer]');  
 
-  const postElement = createPost('','sanaxo','Switching Languages' ,'Programmers be like', '/src/assets/roddit/aV7NE4n_460swp.webp')
-  console.log('postElement: ', postElement)
+  // Fill the viewport with random posts on initial load (no duplicates).
+  // The last post may overflow the viewport, but nothing is loaded after it.
+  initPosts(main)
 
-  main.appendChild(postElement)
-  
 });
