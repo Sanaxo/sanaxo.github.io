@@ -1,0 +1,100 @@
+.roddit__container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.roddit__main {
+  width: 100%;
+  max-width: 756px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.roddit__footer {
+  width: 100%;
+}
+
+.post {
+  width: 100%;
+}
+
+.post__container {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  width: 100%;
+  animation: postFadeIn 0.35s ease-out;
+}
+
+@keyframes postFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user__image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user__name {
+  font-size: 0.9rem;
+}
+
+.header__title {
+  font-family: 'Aerial', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.header__timestamp {
+  font-size: 0.8rem;
+}
+
+.post__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.content__text {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+img[data-js-post-image] {
+  width: 100%;
+  border-radius: 12px;
+  margin: 8px 0 0;
+  display: block;
+  object-fit: contain;
+  max-height: 480px;
+}

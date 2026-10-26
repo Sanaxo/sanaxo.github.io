@@ -208,6 +208,7 @@ const rodditContainers = document.querySelectorAll('[data-js-roddit-container]')
 
 const initPosts = (container) => {
   const post = loadRandomPost()
+  if (post === null) return
   container.appendChild(post)
   window.requestAnimationFrame(()=>{
     if (container.scrollHeight < window.innerHeight) {
@@ -230,5 +231,16 @@ rodditContainers.forEach(rodditContainer => {
   // Fill the viewport with random posts on initial load (no duplicates).
   // The last post may overflow the viewport, but nothing is loaded after it.
   initPosts(main)
+
+  // Load more posts when the user scrolls near the bottom of the page.
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+    const isNearBottom = scrollTop + window.innerHeight >= scrollHeight
+
+    if (isNearBottom) {
+      initPosts(main)
+    }
+  });
 
 });
